@@ -105,12 +105,17 @@ resource "aws_kms_key_policy" "example" {
   })
 }
 
+resource "aws_iam_instance_profile" "ec2_profile" {
+  name = "ec2_profile"
+  role = aws_iam_role.test_role.name
+  
+}
 
 resource "aws_instance" "example" {
   ami           = "ami-02453f5468b897e31"
   instance_type = "t2.micro"
-
-  
+  iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
+  security_groups = aws_security_group.allow_tls.name
  
   tags = {
     Name = "Test"
