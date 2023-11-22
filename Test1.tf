@@ -37,6 +37,9 @@ resource "aws_iam_role" "test_role" {
       },
     ]
   })
+  tags = {
+    Name = "Test Role"
+  }
 }
 
 resource "aws_security_group" "allow_tls" {
