@@ -39,14 +39,14 @@ resource "aws_iam_role" "test_role" {
 resource "aws_security_group" "allow_tls" {
   name        = "allow_tls"
   description = "Allow TLS inbound traffic"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = "vpc-0338dc15f3ea40aad"
 
   ingress {
     description      = "TLS from VPC"
     from_port        = 443
     to_port          = 443
     protocol         = "tcp"
-    cidr_blocks      = [aws_vpc.main.cidr_block]
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   ingress {
@@ -54,7 +54,7 @@ resource "aws_security_group" "allow_tls" {
     from_port        = 8080
     to_port          = 8080
     protocol         = "tcp"
-    cidr_blocks      = [aws_vpc.main.cidr_block]
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   egress {
