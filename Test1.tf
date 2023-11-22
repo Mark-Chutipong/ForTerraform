@@ -68,6 +68,14 @@ resource "aws_security_group" "allow_tls" {
     cidr_blocks      = ["0.0.0.0/0"]
   }
 
+  ingress {
+    description      = "SSH Access"
+    from_port        = 22
+    to_port          = 22
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
   egress {
     from_port        = 0
     to_port          = 0
@@ -115,7 +123,7 @@ resource "aws_instance" "example" {
   ami           = "ami-02453f5468b897e31"
   instance_type = "t2.micro"
   iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
-  security_groups = aws_security_group.allow_tls.name
+  security_groups = [aws_security_group.allow_tls.name]
  
   tags = {
     Name = "Test"
