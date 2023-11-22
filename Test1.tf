@@ -106,29 +106,11 @@ resource "aws_kms_key_policy" "example" {
 }
 
 
-
-resource "aws_vpc" "example" {
-  cidr_block = "172.31.0.0/16"
-
-  tags = {
-    Name = "tf-example"
-  }
-}
-
-resource "aws_subnet" "example" {
-  vpc_id            = aws_vpc.example.id
-  cidr_block        = "172.16.10.0/24"
-  availability_zone = "ap-southeast-1a"
-
-  tags = {
-    Name = "Test"
-  }
-}
-
 resource "aws_instance" "example" {
   ami           = "ami-02453f5468b897e31"
   instance_type = "t2.micro"
-  subnet_id     = aws_subnet.example.id
+
+  
  
   tags = {
     Name = "Test"
