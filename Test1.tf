@@ -1,9 +1,8 @@
 provider "aws" {
   region = "ap-southeast-1"
 }
-resource "aws_iam_role_policy" "test_policy" {
+resource "aws_iam_policy" "test_policy" {
   name = "test_policy"
-  role = aws_iam_role.test_role.id
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
@@ -41,6 +40,12 @@ resource "aws_iam_role" "test_role" {
     Name = "Test Role"
   }
 }
+
+resource "aws_iam_role_policy_attachment" "test-attach" {
+  role       = "${aws_iam_role.role.name}"
+  policy_arn = "${aws_iam_policy.policy.arn}"
+}
+
 
 resource "aws_security_group" "allow_tls" {
   name        = "allow_tls"
