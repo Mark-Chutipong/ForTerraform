@@ -133,7 +133,7 @@ resource "aws_instance" "example" {
   
 
   root_block_device {
-    delete_on_termination = true
+    #delete_on_termination = true
     encrypted             = true
     kms_key_id = aws_kms_key.example.arn
     volume_size           = "10"
