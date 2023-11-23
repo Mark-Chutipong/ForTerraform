@@ -128,7 +128,7 @@ resource "aws_instance" "example" {
   ami           = "ami-02453f5468b897e31"
   instance_type = "t2.micro"
   iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
-  security_groups = aws_security_group.allow_tls.name
+  security_groups = [aws_security_group.allow_tls.id]
   key_name = aws_key_pair.deployer.key_name
   
 
@@ -137,6 +137,7 @@ resource "aws_instance" "example" {
     encrypted             = true
     kms_key_id = aws_kms_key.example.arn
     volume_size           = 10
+    volume_type = "gp2" #Disk
   }
  
   tags = {
