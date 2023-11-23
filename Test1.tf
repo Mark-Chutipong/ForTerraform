@@ -132,13 +132,13 @@ resource "aws_instance" "example" {
   key_name = aws_key_pair.deployer.key_name
   
 
-  root_block_device {
+  #root_block_device {
     #delete_on_termination = true
     #encrypted             = true
     #kms_key_id = aws_kms_key.example.id
-    volume_size           = "10"
+    #volume_size           = "10"
     #volume_type = "gp2" #Disk
-  }
+  #}
  
   tags = {
     Name = "Test"
