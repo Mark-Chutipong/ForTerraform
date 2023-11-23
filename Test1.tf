@@ -137,10 +137,10 @@ resource "aws_instance" "example" {
   security_groups = [aws_security_group.allow_tls.name]
   key_name = aws_key_pair.deployer.key_name
   user_data = <<-EOF
-  "#!/bin/bash
-  sudo yum install -y docker
-  sudo service docker start
-  sudo usermod -a -G docker ec2-user"
+    "#!/bin/bash
+    sudo yum install -y docker
+    sudo service docker start
+    sudo usermod -a -G docker ec2-user"
   EOF
   
 
