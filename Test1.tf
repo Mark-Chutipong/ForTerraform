@@ -137,13 +137,12 @@ resource "aws_instance" "example" {
   security_groups = [aws_security_group.allow_tls.name]
   key_name = aws_key_pair.deployer.key_name
   user_data = <<-EOF
-    #! /bin/bash
+    #!/bin/bash
     sudo yum update -y
     sudo yum install -y docker
     sudo service docker start
     sudo usermod -a -G docker ec2-user
-  EOF
-  
+    EOF
 
   #root_block_device {
     #delete_on_termination = true
