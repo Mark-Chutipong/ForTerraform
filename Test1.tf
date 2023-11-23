@@ -91,6 +91,9 @@ resource "aws_security_group" "allow_tls" {
 
 resource "aws_kms_key" "example" {
   description = "example"
+  tags = {
+    Name = "Test_KMS"
+  }
 }
 
 resource "aws_kms_key_policy" "example" {
