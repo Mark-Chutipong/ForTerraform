@@ -139,6 +139,7 @@ resource "aws_instance" "example" {
   user_data = <<-EOF
   "#!/bin/bash
   sudo yum install -y docker
+  sudo service docker start
   sudo usermod -a -G docker ec2-user"
   EOF
   
