@@ -91,9 +91,12 @@ resource "aws_security_group" "allow_tls" {
 
 resource "aws_kms_key" "example" {
   description = "example"
-  tags = {
-    aliases = "Test_KMS"
-  }
+    
+  
+}
+resource "aws_kms_alias" "a" {
+  name          = "alias"
+  target_key_id = aws_kms_key.example.key_id
 }
 
 resource "aws_kms_key_policy" "example" {
