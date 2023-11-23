@@ -130,12 +130,22 @@ resource "aws_instance" "example" {
   iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
   security_groups = aws_security_group.allow_tls.id
   key_name = aws_key_pair.deployer.key_name
-  kms_key_id = aws_kms_key.example.arn
+  
+
+  root_block_device {
+    delete_on_termination = true
+    encrypted             = true
+    kms_key_id = aws_kms_key.example.arn
+    volume_size           = 10
+  }
  
   tags = {
     Name = "Test"
   }
 }
+
+
+
 
 
 
