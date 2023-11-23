@@ -135,9 +135,9 @@ resource "aws_instance" "example" {
   root_block_device {
     #delete_on_termination = true
     #encrypted             = true
-    kms_key_id = aws_kms_key.example.id
+    #kms_key_id = aws_kms_key.example.id
     volume_size           = "10"
-    volume_type = "gp2" #Disk
+    #volume_type = "gp2" #Disk
   }
  
   tags = {
