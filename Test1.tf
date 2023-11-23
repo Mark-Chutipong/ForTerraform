@@ -95,7 +95,7 @@ resource "aws_kms_key" "example" {
   
 }
 resource "aws_kms_alias" "a" {
-  name          = "alias"
+  name          = "name/testalias"
   target_key_id = aws_kms_key.example.key_id
 }
 
