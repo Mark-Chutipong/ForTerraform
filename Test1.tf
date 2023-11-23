@@ -136,7 +136,7 @@ resource "aws_instance" "example" {
     delete_on_termination = true
     encrypted             = true
     kms_key_id = aws_kms_key.example.arn
-    volume_size           = 10
+    volume_size           = "10"
     volume_type = "gp2" #Disk
   }
  
