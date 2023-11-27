@@ -42,8 +42,8 @@ resource "aws_iam_role" "test_role" {
 }
 
 resource "aws_iam_role_policy_attachment" "test-attach" {
-  role       = "${aws_iam_role.test_role.name}"
-  policy_arn = "${aws_iam_policy.test_policy.arn}"
+  role       = aws_iam_role.test_role.name
+  policy_arn = aws_iam_policy.test_policy.arn
 }
 
 
@@ -53,27 +53,27 @@ resource "aws_security_group" "allow_tls" {
   vpc_id      = "vpc-0338dc15f3ea40aad"
 
   ingress {
-    description      = "TLS from VPC"
-    from_port        = 443
-    to_port          = 443
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
+    description = "TLS from VPC"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
-    description      = "TLS from VPC"
-    from_port        = 8080
-    to_port          = 8080
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
+    description = "TLS from VPC"
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
-    description      = "SSH Access"
-    from_port        = 22
-    to_port          = 22
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
+    description = "SSH Access"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
@@ -91,8 +91,8 @@ resource "aws_security_group" "allow_tls" {
 
 resource "aws_kms_key" "example" {
   description = "example"
-    
-  
+
+
 }
 resource "aws_kms_alias" "a" {
   name          = "alias/testalias"
@@ -122,7 +122,7 @@ resource "aws_kms_key_policy" "example" {
 resource "aws_iam_instance_profile" "ec2_profile" {
   name = "ec2_profile"
   role = aws_iam_role.test_role.name
-  
+
 }
 
 resource "aws_key_pair" "deployer" {
@@ -131,12 +131,12 @@ resource "aws_key_pair" "deployer" {
 }
 
 resource "aws_instance" "example" {
-  ami           = "ami-02453f5468b897e31"
-  instance_type = "t2.micro"
+  ami                  = "ami-02453f5468b897e31"
+  instance_type        = "t2.micro"
   iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
-  security_groups = [aws_security_group.allow_tls.name]
-  key_name = aws_key_pair.deployer.key_name
-  user_data = <<-EOF
+  security_groups      = [aws_security_group.allow_tls.name]
+  key_name             = aws_key_pair.deployer.key_name
+  user_data            = <<-EOF
     #!/bin/bash
     sudo yum update -y
     sudo yum install -y docker
@@ -146,13 +146,13 @@ resource "aws_instance" "example" {
     EOF
 
   #root_block_device {
-    #delete_on_termination = true
-    #encrypted             = true
-    #kms_key_id = aws_kms_key.example.id
-    #volume_size           = "10"
-    #volume_type = "gp2" #Disk
+  #delete_on_termination = true
+  #encrypted             = true
+  #kms_key_id = aws_kms_key.example.id
+  #volume_size           = "10"
+  #volume_type = "gp2" #Disk
   #}
- 
+
   tags = {
     Name = "Test"
   }
