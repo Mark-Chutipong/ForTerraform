@@ -1,31 +1,31 @@
 variable "region" {
-    type = string
-    default ="ap-southeast-1"
+  type    = string
+  default = "ap-southeast-1"
 }
 
 variable "name" {
-    type = string
-    default ="test_policy"
+  type    = string
+  default = "test_policy"
 }
 
 variable "version" {
-    type = string
-    default ="2012-10-17"
+  type    = string
+  default = "2012-10-17"
 }
 
 variable "action" {
-    type = string
-    default ="ec2:Describe*"
+  type    = string
+  default = "ec2:Describe*"
 }
 
 variable "effect" {
-    type = string
-    default ="Allow"
+  type    = string
+  default = "Allow"
 }
 
 variable "resource" {
-    type = string
-    default ="*"
+  type    = string
+  default = "*"
 }
 
 
