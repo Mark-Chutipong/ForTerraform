@@ -8,14 +8,14 @@ aws_ec2_tags        = "Test"
 aws_iam_policy_name = "default"
 aws_iam_policy = <<-EOF
   {
-    Version = "2012-10-17"
-    Statement = [
+    "Version" = "2012-10-17"
+    "Statement" = [
       {
-        Action = [
+        "Action" = [
           "ec2:Describe*",
         ]
-        Effect   = "Allow"
-        Resource = "*"
+        "Effect"   = "Allow"
+        "Resource" = "*"
       },
     ]
   }
