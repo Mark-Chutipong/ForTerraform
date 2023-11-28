@@ -6,14 +6,12 @@ aws_ec2_security_group = "allow_tls"
 aws_ec2_key_name = "deployer-key"
 aws_ec2_tags        = "Test"
 aws_iam_policy_name = "default"
-aws_iam_policy = <<-EOF
+aws_iam_policy = default = <<-EOF
   {
     "Version" : "2012-10-17",
     "Statement" : [
       {
-        "Action" : [
-          "ec2:Describe*",
-        ],
+        "Action" : "ec2:Describe*",
         "Effect"   : "Allow",
         "Resource" : "*"
       },
