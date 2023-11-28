@@ -2,6 +2,9 @@ module "ec2_instance" {
   source        = "./ec2_instance"
   ami           = var.aws_ami
   instance_type = var.aws_instance_type
+  iam_instance_profile = var.aws_ec2_iam_instance_profile
+  security_group = var.aws_ec2_security_group
+  key_name = var.aws_ec2_key_name
   tags          = var.aws_ec2_tags
 }
 

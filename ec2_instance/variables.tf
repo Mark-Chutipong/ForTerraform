@@ -13,6 +13,21 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
+variable "iam_instance_profile" {
+  type = string
+  default = "ec2_profile"
+}
+
+variable "security_group" {
+  type = string
+  default = "allow_tls"
+}
+
+variable "key_name" {
+  type = string
+  default = "deployer-key"
+}
+
 variable "tags" {
   type = map(string)
   default = {

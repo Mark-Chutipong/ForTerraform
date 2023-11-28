@@ -13,6 +13,21 @@ variable "aws_instance_type" {
   default = "t2.micro"
 }
 
+variable "aws_ec2_iam_instance_profile" {
+  type = string
+  default = "ec2_profile"
+}
+
+variable "aws_ec2_security_group" {
+  type = string
+  default = "allow_tls"
+}
+
+variable "aws_ec2_key_name" {
+  type = string
+  default = "deployer-key"
+}
+
 variable "aws_ec2_tags" {
   type = map(string)
   default = {
@@ -27,7 +42,7 @@ variable "aws_iam_policy_name" {
 
 variable "aws_iam_policy" {
   type = string
-  default = <<-EOF
+  default = jsonencode(
   {
     Version = "2012-10-17"
     Statement = [
@@ -39,8 +54,8 @@ variable "aws_iam_policy" {
         Resource = "*"
       },
     ]
-  }
-  EOF
+  })
+  
 }
 
 variable "aws_iam_role_name" {
@@ -50,7 +65,7 @@ variable "aws_iam_role_name" {
 
 variable "aws_iam_role" {
   type = string
-  default = <<-EOF
+  default = jsonencode(
   {
     Version = "2012-10-17"
     Statement = [
@@ -63,8 +78,7 @@ variable "aws_iam_role" {
         }
       },
     ]
-  }
-  EOF
+  })
 }
 
 
@@ -166,7 +180,7 @@ variable "aws_kms_alias" {
 
 variable "aws_kms_policy" {
   type = string
-  default = <<-EOF
+  default = jsonencode(
   {
     Id = "default"
     Statement = [
@@ -182,6 +196,5 @@ variable "aws_kms_policy" {
       },
     ]
     Version = "2012-10-17"
-  }
-  EOF
+  })
 }

@@ -1,6 +1,9 @@
 aws_region          = "ap-southeast"
 aws_ami             = "ami-02453f5468b897e31"
 aws_instance_type   = "t2.micro"
+aws_ec2_iam_instance_profile = "ec2_profile"
+aws_ec2_security_group = "allow_tls"
+aws_ec2_key_name = "deployer-key"
 aws_ec2_tags        = "Test"
 aws_iam_policy_name = "default"
 aws_iam_policy = jsonencode({

@@ -9,7 +9,7 @@ variable "iam_policy_name" {
 
 variable "iam_policy" {
   type = string
-  default = <<-EOF
+  default = jsonencode(
   {
     Version = "2012-10-17"
     Statement = [
@@ -21,8 +21,7 @@ variable "iam_policy" {
         Resource = "*"
       },
     ]
-  }
-  EOF
+  })
 }
 
 variable "iam_role_name" {
@@ -32,7 +31,7 @@ variable "iam_role_name" {
 
 variable "iam_role" {
   type = string
-  default = <<-EOF
+  default = jsonencode(
   {
     Version = "2012-10-17"
     Statement = [
@@ -45,8 +44,8 @@ variable "iam_role" {
         }
       },
     ]
-  }
-  EOF
+  })
+  
 }
 
 
