@@ -4,8 +4,8 @@ resource "aws_iam_policy" "default" {
 }
 resource "aws_iam_role" "default" {
   name = var.iam_role_name
-
   assume_role_policy = var.iam_role
+  
   tags = {
     Name = var.tags["RoleName"]
   }
