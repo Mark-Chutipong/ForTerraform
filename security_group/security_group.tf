@@ -35,6 +35,6 @@ resource "aws_security_group" "allow_tls" {
   }
 
   tags = {
-    Name = [var.tags[0]]
+    Name = var.tags["Name"]
   }
 }
