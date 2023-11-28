@@ -11,13 +11,13 @@ variable "iam_policy" {
   type = string
   default = <<-EOF
   {
-    "Version" : "2012-10-17"
+    "Version" : "2012-10-17",
     "Statement" : [
       {
         "Action" : [
-          "ec2:Describe*"
-        ]
-        "Effect"   : "Allow"
+          "ec2:Describe*",
+        ],
+        "Effect"   : "Allow",
         "Resource" : "*"
       },
     ]
