@@ -1,51 +1,28 @@
 provider "aws" {
   region = var.region
 }
-resource "aws_iam_policy" "test_policy" {
-  name = var.name
+resource "aws_iam_policy" "default" {
+  name = var.iam_policy_name
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
-  policy = jsonencode({
-    Version = var.version
-    Statement = [
-      {
-        Action = [
-          var.action,
-        ]
-        Effect   = var.effect
-        Resource = 0
-      },
-    ]
-  })
+  policy = var.iam_policy
 }
-resource "aws_iam_role" "test_role" {
-  name = var.name
+resource "aws_iam_role" "default" {
+  name = var.iam_role_name
 
-  assume_role_policy = jsonencode({
-    Version = var.version
-    Statement = [
-      {
-        Action = var.action
-        Effect = var.effect
-        Sid    = var.sid
-        Principal = {
-          Service = var.service
-        }
-      },
-    ]
-  })
+  assume_role_policy = var.iam_role
   tags = {
-    Name = [var.tags[0]]
+    Name = var.tags["RoleName"]
   }
 }
 resource "aws_iam_role_policy_attachment" "test-attach" {
-  role       = aws_iam_role.test_role.name
-  policy_arn = aws_iam_policy.test_policy.arn
+  role       = aws_iam_role.default.name
+  policy_arn = aws_iam_policy.default.arn
 }
 
 resource "aws_iam_instance_profile" "ec2_profile" {
-  name = "ec2_profile"
-  role = [aws_iam_role.test_role.name]
+  name = var.profilename
+  role = aws_iam_role.default.name
 }
 

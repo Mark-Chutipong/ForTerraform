@@ -1,19 +1,13 @@
-resource "aws_kms_key_policy" "example" {
-  key_id = [aws_kms_key.example.id]
-  policy = jsonencode({
-    Id = var.id
-    Statement = [
-      {
-        Action = var.action
-        Effect = var.effect
-        Principal = {
-          AWS = var.PrincipalAWS
-        }
+resource "aws_kms_key" "default" {
+  description = var.name
+}
 
-        Resource = var.resource
-        Sid      = var.Sid
-      },
-    ]
-    Version = var.version
-  })
+resource "aws_kms_alias" "a" {
+  name          = var.alias
+  target_key_id = aws_kms_key.default.key_id
+}
+
+resource "aws_kms_key_policy" "default" {
+  key_id = aws_kms_key.default.id
+  policy = var.kmspolicy
 }

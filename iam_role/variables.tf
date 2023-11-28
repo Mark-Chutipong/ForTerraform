@@ -2,41 +2,57 @@ variable "region" {
   type    = string
   default = "ap-southeast-1"
 }
-
-variable "name" {
-  type    = string
-  default = "test_role"
+variable "iam_policy_name" {
+  type = string
+  default = "default"
 }
 
-variable "version" {
-  type    = string
-  default = "2012-10-17"
+variable "iam_policy" {
+  type = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "ec2:Describe*",
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      },
+    ]
+  })
 }
 
-variable "action" {
-  type    = string
-  default = "sts:AssumeRole"
+variable "iam_role_name" {
+  type = string
+  default = "default"
 }
 
-variable "effect" {
-  type    = string
-  default = "allow"
+variable "iam_role" {
+  type = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+      },
+    ]
+  })
 }
 
-variable "sid" {
-  type    = string
-  default = ""
-}
 
-variable "service" {
-  type    = string
-  default = "ec2.amazonaws.com"
+variable "profilename" {
+  type = string
+  default = "ec2_profile"
 }
-
 variable "tags" {
   type = map(string)
   default = {
-    Name = "Test Role"
+    RoleName = "Default"
+    PolicyName = "Default"
   }
 }
 
