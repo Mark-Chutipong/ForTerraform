@@ -8,7 +8,8 @@ variable "iam_policy_name" {
 }
 
 variable "iam_policy" {
-  type = jsonencode({
+  type = string
+  default = ({
     Version = "2012-10-17"
     Statement = [
       {
@@ -28,7 +29,8 @@ variable "iam_role_name" {
 }
 
 variable "iam_role" {
-  type = jsonencode({
+  type = string
+  default = ({
     Version = "2012-10-17"
     Statement = [
       {

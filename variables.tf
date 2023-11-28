@@ -26,7 +26,8 @@ variable "aws_iam_policy_name" {
 }
 
 variable "aws_iam_policy" {
-  type = jsonencode({
+  type = string
+  default = ({
     Version = "2012-10-17"
     Statement = [
       {
@@ -46,7 +47,8 @@ variable "aws_iam_role_name" {
 }
 
 variable "aws_iam_role" {
-  type = jsonencode({
+  type = string
+  default = ({
     Version = "2012-10-17"
     Statement = [
       {
@@ -159,7 +161,8 @@ variable "aws_kms_alias" {
 }
 
 variable "aws_kms_policy" {
-  type = jsonencode({
+  type = string
+  default = ({
     Id = "default"
     Statement = [
       {

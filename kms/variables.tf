@@ -16,7 +16,8 @@ variable "alias" {
 }
 
 variable "kms_policy" {
-  type = jsonencode({
+  type = string
+  default = ({
     Id = "default"
     Statement = [
       {
