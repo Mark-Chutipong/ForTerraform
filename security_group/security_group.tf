@@ -31,7 +31,7 @@ resource "aws_security_group" "allow_tls" {
     to_port          = var.egr_port
     protocol         = var.egr_proto
     cidr_blocks      = [var.cidr_blocks]
-    ipv6_cidr_blocks = [var.var.ipv6_cidr_blocks]
+    ipv6_cidr_blocks = [var.ipv6_cidr_blocks]
   }
 
   tags = {
