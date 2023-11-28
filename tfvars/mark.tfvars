@@ -59,7 +59,7 @@ sg_tags             = "allow_tls"
 aws_kms_name        = "default"
 aws_kms_alias       = "alias/testalias"
 aws_kms_policy = <<-EOF
-  {
+{
     Id = "default"
     Statement = [
       {
@@ -74,5 +74,5 @@ aws_kms_policy = <<-EOF
       },
     ]
     Version = "2012-10-17"
-  }
-  EOF
+}
+EOF

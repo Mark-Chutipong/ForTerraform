@@ -182,7 +182,7 @@ variable "aws_kms_alias" {
 variable "aws_kms_policy" {
   type = string
   default = <<-EOF
-  {
+{
     Id = "default"
     Statement = [
       {
@@ -197,6 +197,6 @@ variable "aws_kms_policy" {
       },
     ]
     Version = "2012-10-17"
-  }
-  EOF
+}
+EOF
 }
