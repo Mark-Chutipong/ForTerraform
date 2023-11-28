@@ -4,15 +4,15 @@ variable "region" {
 }
 
 variable "name" {
-  type = string
+  type    = string
   default = "default"
-  
+
 }
 
 variable "alias" {
-  type = string
+  type    = string
   default = "alias/testalias"
-  
+
 }
 
 variable "kms_policy" {

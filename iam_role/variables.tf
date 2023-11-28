@@ -3,7 +3,7 @@ variable "region" {
   default = "ap-southeast-1"
 }
 variable "iam_policy_name" {
-  type = string
+  type    = string
   default = "default"
 }
 
@@ -23,7 +23,7 @@ variable "iam_policy" {
 }
 
 variable "iam_role_name" {
-  type = string
+  type    = string
   default = "default"
 }
 
@@ -45,13 +45,13 @@ variable "iam_role" {
 
 
 variable "profilename" {
-  type = string
+  type    = string
   default = "ec2_profile"
 }
 variable "tags" {
   type = map(string)
   default = {
-    RoleName = "Default"
+    RoleName   = "Default"
     PolicyName = "Default"
   }
 }

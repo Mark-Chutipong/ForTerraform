@@ -6,11 +6,11 @@ module "ec2_instance" {
 }
 
 module "iam_role" {
-  source = "./iam_role"
+  source          = "./iam_role"
   iam_policy_name = var.aws_iam_policy_name
-  iam_policy = var.aws_iam_policy
-  iam_role_name = var.aws_iam_role_name
-  iam_role = var.aws_iam_role
+  iam_policy      = var.aws_iam_policy
+  iam_role_name   = var.aws_iam_role_name
+  iam_role        = var.aws_iam_role
 }
 
 
@@ -33,8 +33,8 @@ module "security_group" {
 }
 
 module "kms" {
-  source       = "./kms"
-  name = var.aws_kms_name
-  alias = var.aws_kms_alias
+  source     = "./kms"
+  name       = var.aws_kms_name
+  alias      = var.aws_kms_alias
   kms_policy = var.aws_kms_policy
 }

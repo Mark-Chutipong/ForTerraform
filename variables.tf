@@ -21,7 +21,7 @@ variable "aws_ec2_tags" {
 }
 
 variable "aws_iam_policy_name" {
-  type = string
+  type    = string
   default = "default"
 }
 
@@ -41,7 +41,7 @@ variable "aws_iam_policy" {
 }
 
 variable "aws_iam_role_name" {
-  type = string
+  type    = string
   default = "default"
 }
 
@@ -63,13 +63,13 @@ variable "aws_iam_role" {
 
 
 variable "aws_profilename" {
-  type = string
+  type    = string
   default = "ec2_profile"
 }
 variable "aws_iam_tags" {
   type = map(string)
   default = {
-    RoleName = "Default"
+    RoleName   = "Default"
     PolicyName = "Default"
   }
 }
@@ -147,15 +147,15 @@ variable "sg_tags" {
 }
 
 variable "aws_kms_name" {
-  type = string
+  type    = string
   default = "default"
-  
+
 }
 
 variable "aws_kms_alias" {
-  type = string
+  type    = string
   default = "alias/testalias"
-  
+
 }
 
 variable "aws_kms_policy" {

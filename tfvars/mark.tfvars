@@ -1,19 +1,39 @@
 aws_region          = "ap-southeast"
 aws_ami             = "ami-02453f5468b897e31"
 aws_instance_type   = "t2.micro"
-aws_tags            = "Test"
-role_name           = "test_role"
-role_version        = "2012-10-17"
-role_action         = "sts:AssumeRole"
-role_effect         = "allow"
-role_sid            = ""
-role_service        = "ec2.amazonaws.com"
-role_tags           = "Test Role"
-policy_name         = "test_policy"
-policy_version      = "2012-10-17"
-policy_action       = "ec2:Describe*"
-policy_effect       = "Allow"
-policy_resource     = "*"
+aws_ec2_tags        = "Test"
+aws_iam_policy_name = "default"
+aws_iam_policy = jsonencode({
+  Version = "2012-10-17"
+  Statement = [
+    {
+      Action = [
+        "ec2:Describe*",
+      ]
+      Effect   = "Allow"
+      Resource = "*"
+    },
+  ]
+})
+aws_iam_role_name = "default"
+aws_iam_role = jsonencode({
+  Version = "2012-10-17"
+  Statement = [
+    {
+      Action = "sts:AssumeRole"
+      Effect = "Allow"
+      Sid    = ""
+      Principal = {
+        Service = "ec2.amazonaws.com"
+      }
+    },
+  ]
+})
+aws_profilename = "ec2_profile"
+aws_iam_tags = {
+  RoleName   = "Default"
+  PolicyName = "Default"
+}
 sg_name             = "allow_tls"
 sg_description      = "Allow TLS inbound traffic"
 sg_vpc_id           = "vpc-0338dc15f3ea40aad"
@@ -28,10 +48,21 @@ sg_egr_proto        = "-1"
 sg_cidr_blocks      = "0.0.0.0/0"
 sg_ipv6_cidr_blocks = "::/0"
 sg_tags             = "allow_tls"
-kms_id              = "exmaple"
-kms_action          = "kms:*"
-kms_effect          = "Allow"
-kms_PrincipalAWS    = "*"
-kms_resource        = "*"
-kms_Sid             = "Enable IAM User Permissions"
-kms_version         = "2012-10-17"
+aws_kms_name        = "default"
+aws_kms_alias       = "alias/testalias"
+aws_kms_policy = jsonencode({
+  Id = "default"
+  Statement = [
+    {
+      Action = "kms:*"
+      Effect = "Allow"
+      Principal = {
+        AWS = "*"
+      }
+
+      Resource = "*"
+      Sid      = "Enable IAM User Permissions"
+    },
+  ]
+  Version = "2012-10-17"
+})
