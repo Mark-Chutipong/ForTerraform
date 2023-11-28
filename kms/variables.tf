@@ -17,7 +17,7 @@ variable "alias" {
 
 variable "kms_policy" {
   type = string
-  default = jsonencode(
+  default = <<EOF
   {
     Id = "default"
     Statement = [
@@ -33,6 +33,6 @@ variable "kms_policy" {
       },
     ]
     Version = "2012-10-17"
-  })
-  
+  }
+  EOF
 }
