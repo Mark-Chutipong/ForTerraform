@@ -12,7 +12,7 @@ aws_iam_policy = <<-EOF
     "Statement" : [
       {
         "Action" : [
-          "ec2:Describe*"
+          "ec2:Describe*",
         ]
         "Effect"   : "Allow"
         "Resource" : "*"
