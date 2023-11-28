@@ -30,7 +30,7 @@ variable "kms_policy" {
 
         Resource = "*"
         Sid      = "Enable IAM User Permissions"
-      },
+      }
     ]
     Version = "2012-10-17"
   }
