@@ -1,6 +1,3 @@
-provider "aws" {
-  region = var.region
-}
 resource "aws_iam_policy" "default" {
   name = var.iam_policy_name
 
