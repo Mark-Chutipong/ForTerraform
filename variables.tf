@@ -42,7 +42,7 @@ variable "aws_iam_policy_name" {
 
 variable "aws_iam_policy" {
   type = string
-  default = jsonencode(
+  default = <<-EOF
   {
     Version = "2012-10-17"
     Statement = [
@@ -54,8 +54,8 @@ variable "aws_iam_policy" {
         Resource = "*"
       },
     ]
-  })
-  
+  }
+  EOF
 }
 
 variable "aws_iam_role_name" {
@@ -65,7 +65,7 @@ variable "aws_iam_role_name" {
 
 variable "aws_iam_role" {
   type = string
-  default = jsonencode(
+  default = <<-EOF
   {
     Version = "2012-10-17"
     Statement = [
@@ -78,7 +78,8 @@ variable "aws_iam_role" {
         }
       },
     ]
-  })
+  }
+  EOF
 }
 
 
@@ -180,7 +181,7 @@ variable "aws_kms_alias" {
 
 variable "aws_kms_policy" {
   type = string
-  default = jsonencode(
+  default = <<EOF
   {
     Id = "default"
     Statement = [
@@ -196,5 +197,6 @@ variable "aws_kms_policy" {
       },
     ]
     Version = "2012-10-17"
-  })
+  }
+  EOF
 }

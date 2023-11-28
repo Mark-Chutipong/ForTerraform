@@ -6,32 +6,37 @@ aws_ec2_security_group = "allow_tls"
 aws_ec2_key_name = "deployer-key"
 aws_ec2_tags        = "Test"
 aws_iam_policy_name = "default"
-aws_iam_policy = jsonencode({
-  Version = "2012-10-17"
-  Statement = [
-    {
-      Action = [
-        "ec2:Describe*",
-      ]
-      Effect   = "Allow"
-      Resource = "*"
-    },
-  ]
-})
+aws_iam_policy = <<-EOF
+  {
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "ec2:Describe*",
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      },
+    ]
+  }
+  EOF
+
 aws_iam_role_name = "default"
-aws_iam_role = jsonencode({
-  Version = "2012-10-17"
-  Statement = [
-    {
-      Action = "sts:AssumeRole"
-      Effect = "Allow"
-      Sid    = ""
-      Principal = {
-        Service = "ec2.amazonaws.com"
-      }
-    },
-  ]
-})
+aws_iam_role = <<-EOF
+  {
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+      },
+    ]
+  }
+  EOF
 aws_profilename = "ec2_profile"
 aws_iam_tags = {
   RoleName   = "Default"
@@ -53,19 +58,21 @@ sg_ipv6_cidr_blocks = "::/0"
 sg_tags             = "allow_tls"
 aws_kms_name        = "default"
 aws_kms_alias       = "alias/testalias"
-aws_kms_policy = jsonencode({
-  Id = "default"
-  Statement = [
-    {
-      Action = "kms:*"
-      Effect = "Allow"
-      Principal = {
-        AWS = "*"
-      }
+aws_kms_policy = <<EOF
+  {
+    Id = "default"
+    Statement = [
+      {
+        Action = "kms:*"
+        Effect = "Allow"
+        Principal = {
+          AWS = "*"
+        }
 
-      Resource = "*"
-      Sid      = "Enable IAM User Permissions"
-    },
-  ]
-  Version = "2012-10-17"
-})
+        Resource = "*"
+        Sid      = "Enable IAM User Permissions"
+      },
+    ]
+    Version = "2012-10-17"
+  }
+  EOF
