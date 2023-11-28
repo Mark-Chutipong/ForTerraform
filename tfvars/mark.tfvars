@@ -58,7 +58,7 @@ sg_ipv6_cidr_blocks = "::/0"
 sg_tags             = "allow_tls"
 aws_kms_name        = "default"
 aws_kms_alias       = "alias/testalias"
-aws_kms_policy = <<EOF
+aws_kms_policy = <<-EOF
   {
     Id = "default"
     Statement = [
