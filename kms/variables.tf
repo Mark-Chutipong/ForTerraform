@@ -19,20 +19,20 @@ variable "kms_policy" {
   type = string
   default = <<-EOF
   {
-    Id = "default"
+    Id = default
     Statement = [
       {
-        Action = "kms:*"
-        Effect = "Allow"
+        Action = kms:*
+        Effect = Allow
         Principal = {
-          AWS = "*"
+          AWS = *
         }
 
-        Resource = "*"
-        Sid      = "Enable IAM User Permissions"
-      }
+        Resource = *
+        Sid      = Enable IAM User Permissions
+      },
     ]
-    Version = "2012-10-17"
+    Version = "2012-10-17
   }
   EOF
 }
