@@ -1,8 +1,5 @@
 resource "aws_iam_policy" "default" {
   name = var.iam_policy_name
-
-  # Terraform's "jsonencode" function converts a
-  # Terraform expression result to valid JSON syntax.
   policy = var.iam_policy
 }
 resource "aws_iam_role" "default" {
