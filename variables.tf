@@ -1,3 +1,8 @@
+variable "aws_region" {
+  type    = string
+  default = "ap-southeast-1"
+}
+
 variable "aws_ami" {
   type    = string
   default = "ami-02453f5468b897e31"
@@ -8,73 +13,65 @@ variable "aws_instance_type" {
   default = "t2.micro"
 }
 
-variable "aws_tags" {
+variable "aws_ec2_tags" {
   type = map(string)
   default = {
     "name" = "Test"
   }
 }
 
-variable "role_name" {
-  type    = string
-  default = "test_role"
+variable "aws_iam_policy_name" {
+  type = string
+  default = "default"
 }
 
-variable "role_version" {
-  type    = string
-  default = "2012-10-17"
+variable "aws_iam_policy" {
+  type = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "ec2:Describe*",
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      },
+    ]
+  })
 }
 
-variable "role_action" {
-  type    = string
-  default = "sts:AssumeRole"
+variable "aws_iam_role_name" {
+  type = string
+  default = "default"
 }
 
-variable "role_effect" {
-  type    = string
-  default = "allow"
+variable "aws_iam_role" {
+  type = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+      },
+    ]
+  })
 }
 
-variable "role_sid" {
-  type    = string
-  default = ""
-}
 
-variable "role_service" {
-  type    = string
-  default = "ec2.amazonaws.com"
+variable "aws_profilename" {
+  type = string
+  default = "ec2_profile"
 }
-
-variable "role_tags" {
+variable "aws_iam_tags" {
   type = map(string)
   default = {
-    Name = "Test Role"
+    RoleName = "Default"
+    PolicyName = "Default"
   }
-}
-
-variable "policy_name" {
-  type    = string
-  default = "test_policy"
-}
-
-variable "policy_version" {
-  type    = string
-  default = "2012-10-17"
-}
-
-variable "policy_action" {
-  type    = string
-  default = "ec2:Describe*"
-}
-
-variable "policy_effect" {
-  type    = string
-  default = "Allow"
-}
-
-variable "policy_resource" {
-  type    = string
-  default = "*"
 }
 
 variable "sg_name" {
@@ -149,37 +146,33 @@ variable "sg_tags" {
   }
 }
 
-variable "kms_id" {
-  type    = string
-  default = "exmaple"
+variable "aws_kms_name" {
+  type = string
+  default = "default"
+  
 }
 
-variable "kms_action" {
-  type    = string
-  default = "kms:*"
+variable "aws_kms_alias" {
+  type = string
+  default = "alias/testalias"
+  
 }
 
-variable "kms_effect" {
-  type    = string
-  default = "Allow"
-}
+variable "aws_kms_policy" {
+  type = jsonencode({
+    Id = "default"
+    Statement = [
+      {
+        Action = "kms:*"
+        Effect = "Allow"
+        Principal = {
+          AWS = "*"
+        }
 
-variable "kms_PrincipalAWS" {
-  type    = string
-  default = "*"
-}
-
-variable "kms_resource" {
-  type    = string
-  default = "*"
-}
-
-variable "kms_Sid" {
-  type    = string
-  default = "Enable IAM User Permissions"
-}
-
-variable "kms_version" {
-  type    = string
-  default = "2012-10-17"
+        Resource = "*"
+        Sid      = "Enable IAM User Permissions"
+      },
+    ]
+    Version = "2012-10-17"
+  })
 }

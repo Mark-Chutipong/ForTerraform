@@ -9,5 +9,5 @@ resource "aws_kms_alias" "a" {
 
 resource "aws_kms_key_policy" "default" {
   key_id = aws_kms_key.default.id
-  policy = var.kmspolicy
+  policy = var.kms_policy
 }

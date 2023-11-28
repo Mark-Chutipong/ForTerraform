@@ -15,7 +15,7 @@ variable "alias" {
   
 }
 
-variable "kmspolicy" {
+variable "kms_policy" {
   type = jsonencode({
     Id = "default"
     Statement = [

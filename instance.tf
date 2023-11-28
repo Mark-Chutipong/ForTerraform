@@ -2,28 +2,18 @@ module "ec2_instance" {
   source        = "./ec2_instance"
   ami           = var.aws_ami
   instance_type = var.aws_instance_type
-  tags          = var.aws_tags
+  tags          = var.aws_ec2_tags
 }
 
 module "iam_role" {
-  source  = "./iam_role"
-  name    = var.role_name
-  version = var.version
-  action  = var.role_action
-  effect  = var.role_effect
-  sid     = var.role_sid
-  service = var.role_service
-  tags    = var.role_tags
+  source = "./iam_role"
+  iam_policy_name = var.aws_iam_policy_name
+  iam_policy = var.aws_iam_policy
+  iam_role_name = var.aws_iam_role_name
+  iam_role = var.aws_iam_role
 }
 
-module "policy" {
-  source   = "./policy"
-  name     = var.policy_name
-  version  = var.policy_version
-  action   = var.policy_action
-  effect   = var.policy_effect
-  resource = var.policy_resource
-}
+
 
 module "security_group" {
   source           = "./security_group"
@@ -42,13 +32,9 @@ module "security_group" {
   ipv6_cidr_blocks = var.sg_ipv6_cidr_blocks
 }
 
-module "kms_policy" {
-  source       = "./kms_policy"
-  id           = var.kms_id
-  action       = var.kms_action
-  effect       = var.kms_effect
-  PrincipalAWS = var.kms_PrincipalAWS
-  resource     = var.kms_resource
-  Sid          = var.kms_Sid
-  version      = var.kms_version
+module "kms" {
+  source       = "./kms"
+  name = var.aws_kms_name
+  alias = var.aws_kms_alias
+  kms_policy = var.aws_kms_policy
 }
