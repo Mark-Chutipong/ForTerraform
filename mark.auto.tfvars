@@ -1,10 +1,10 @@
-aws_region          = "ap-southeast"
+aws_region          = "ap-southeast-1"
 aws_ami             = "ami-02453f5468b897e31"
 aws_instance_type   = "t2.micro"
 aws_ec2_iam_instance_profile = "ec2_profile"
 aws_ec2_security_group = "allow_tls"
 aws_ec2_key_name = "deployer-key"
-aws_ec2_tags        = "Test"
+#aws_ec2_tags        = "Test"
 aws_iam_policy_name = "PolicyMark"
 aws_iam_policy = <<EOF
   {
@@ -53,7 +53,7 @@ sg_egr_port         = 0
 sg_egr_proto        = "-1"
 sg_cidr_blocks      = "0.0.0.0/0"
 sg_ipv6_cidr_blocks = "::/0"
-sg_tags             = "allow_tls"
+#sg_tags             = {"allow_tls"}
 aws_kms_name        = "default"
 aws_kms_alias       = "alias/testalias"
 #aws_kms_policy = <<EOF
