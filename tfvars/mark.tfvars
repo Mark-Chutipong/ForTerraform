@@ -6,7 +6,7 @@ aws_ec2_security_group = "allow_tls"
 aws_ec2_key_name = "deployer-key"
 aws_ec2_tags        = "Test"
 aws_iam_policy_name = "PolicyMark"
-aws_iam_policy = <<-EOF
+aws_iam_policy = <<EOF
   {
     "Version" : "2012-10-17",
     "Statement" : [
@@ -20,7 +20,7 @@ aws_iam_policy = <<-EOF
   EOF
 
 aws_iam_role_name = "RoleMark"
-aws_iam_role = <<-EOF
+aws_iam_role = <<EOF
   {
     Version = "2012-10-17"
     Statement = [
@@ -56,7 +56,7 @@ sg_ipv6_cidr_blocks = "::/0"
 sg_tags             = "allow_tls"
 aws_kms_name        = "default"
 aws_kms_alias       = "alias/testalias"
-aws_kms_policy = <<-EOF
+aws_kms_policy = <<EOF
  {
     Id = "default"
     Statement = [
