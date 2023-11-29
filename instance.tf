@@ -5,7 +5,7 @@ module "ec2_instance" {
   iam_instance_profile = var.aws_ec2_iam_instance_profile
   security_group = var.aws_ec2_security_group
   key_name = var.aws_ec2_key_name
-  tags          = var.aws_ec2_tags
+  #tags          = var.aws_ec2_tags
 }
 
 module "iam_role" {
