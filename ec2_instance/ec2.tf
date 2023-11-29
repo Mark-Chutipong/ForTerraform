@@ -7,7 +7,7 @@ resource "aws_instance" "example" {
   user_data            = file("ec2_instance/userdata.sh")
 
 
-  tags = {
-    Name = var.tags["name"]
-  }
+ # tags = {
+ #   Name = var.tags["name"]
+ # }
 }

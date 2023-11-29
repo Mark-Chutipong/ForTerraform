@@ -28,9 +28,9 @@ variable "key_name" {
   default = "deployer-key"
 }
 
-variable "tags" {
-  type = map(string)
-  default = {
-    "name" = "Test"
-  }
-}
+#variable "tags" {
+#  type = map(string)
+#  default = {
+#    "name" = "Test"
+#  }
+#}

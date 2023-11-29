@@ -28,12 +28,12 @@ variable "aws_ec2_key_name" {
   default = "deployer-key"
 }
 
-variable "aws_ec2_tags" {
-  type = map(string)
-  default = {
-    "name" = "Test"
-  }
-}
+#variable "aws_ec2_tags" {
+#  type = map(string)
+#  default = {
+#    "name" = "Test"
+#  }
+#}
 
 variable "aws_iam_policy_name" {
   type    = string
