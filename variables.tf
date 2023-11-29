@@ -42,7 +42,7 @@ variable "aws_iam_policy_name" {
 
 variable "aws_iam_policy" {
   type = string
-  default = {}
+  default = ""
 }
 
 variable "aws_iam_role_name" {
@@ -52,7 +52,7 @@ variable "aws_iam_role_name" {
 
 variable "aws_iam_role" {
   type = string
-  default = {}
+  default = ""
 }
 
 

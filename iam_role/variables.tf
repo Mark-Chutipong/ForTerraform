@@ -9,7 +9,7 @@ variable "iam_policy_name" {
 
 variable "iam_policy" {
   type = string
-  default = {}
+  default = ""
 }
 
 variable "iam_role_name" {
@@ -19,7 +19,7 @@ variable "iam_role_name" {
 
 variable "iam_role" {
   type = string
-  default = {}
+  default = ""
 }
 
 
