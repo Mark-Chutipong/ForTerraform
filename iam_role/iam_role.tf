@@ -6,9 +6,9 @@ resource "aws_iam_role" "default" {
   name = var.iam_role_name
   assume_role_policy = var.iam_role
   
-  tags = {
-    Name = var.tags["RoleName"]
-  }
+
+    tags = var.tags
+  
 }
 resource "aws_iam_role_policy_attachment" "test-attach" {
   role       = aws_iam_role.default.name

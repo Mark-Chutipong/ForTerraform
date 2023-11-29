@@ -5,8 +5,8 @@ aws_ec2_iam_instance_profile = "ec2_profile"
 aws_ec2_security_group = "allow_tls"
 aws_ec2_key_name = "deployer-key"
 aws_ec2_tags        = "Test"
-aws_iam_policy_name = "default"
-aws_iam_policy = default = <<-EOF
+aws_iam_policy_name = "PolicyMark"
+aws_iam_policy = <<-EOF
   {
     "Version" : "2012-10-17",
     "Statement" : [
@@ -19,7 +19,7 @@ aws_iam_policy = default = <<-EOF
   }
   EOF
 
-aws_iam_role_name = "default"
+aws_iam_role_name = "RoleMark"
 aws_iam_role = <<-EOF
   {
     Version = "2012-10-17"

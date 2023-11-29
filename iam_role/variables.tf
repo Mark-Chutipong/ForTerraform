@@ -4,23 +4,12 @@ variable "region" {
 }
 variable "iam_policy_name" {
   type    = string
-  default = "default"
+  default = ""
 }
 
 variable "iam_policy" {
   type = string
-  default = <<-EOF
-  {
-    "Version" : "2012-10-17",
-    "Statement" : [
-      {
-        "Action" : "ec2:Describe*",
-        "Effect"   : "Allow",
-        "Resource" : "*"
-      },
-    ]
-  }
-  EOF
+  default = {}
 }
 
 variable "iam_role_name" {
@@ -30,21 +19,7 @@ variable "iam_role_name" {
 
 variable "iam_role" {
   type = string
-  default = <<-EOF
-  {
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = "sts:AssumeRole"
-        Effect = "Allow"
-        Sid    = ""
-        Principal = {
-          Service = "ec2.amazonaws.com"
-        }
-      },
-    ]
-  }
-  EOF
+  default = {}
 }
 
 
@@ -54,9 +29,6 @@ variable "profilename" {
 }
 variable "tags" {
   type = map(string)
-  default = {
-    RoleName   = "Default"
-    PolicyName = "Default"
-  }
+  default = {}
 }
 

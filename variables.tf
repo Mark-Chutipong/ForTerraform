@@ -42,42 +42,17 @@ variable "aws_iam_policy_name" {
 
 variable "aws_iam_policy" {
   type = string
-  default = <<-EOF
-  {
-    "Version" : "2012-10-17",
-    "Statement" : [
-      {
-        "Action" : "ec2:Describe*",
-        "Effect"   : "Allow",
-        "Resource" : "*"
-      },
-    ]
-  }
-  EOF
+  default = {}
 }
 
 variable "aws_iam_role_name" {
   type    = string
-  default = "default"
+  default = ""
 }
 
 variable "aws_iam_role" {
   type = string
-  default = <<-EOF
-  {
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = "sts:AssumeRole"
-        Effect = "Allow"
-        Sid    = ""
-        Principal = {
-          Service = "ec2.amazonaws.com"
-        }
-      },
-    ]
-  }
-  EOF
+  default = {}
 }
 
 
@@ -87,10 +62,7 @@ variable "aws_profilename" {
 }
 variable "aws_iam_tags" {
   type = map(string)
-  default = {
-    RoleName   = "Default"
-    PolicyName = "Default"
-  }
+  default = {}
 }
 
 variable "sg_name" {
