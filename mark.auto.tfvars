@@ -14,7 +14,7 @@ aws_iam_policy = <<EOF
         "Action" : "ec2:Describe*",
         "Effect"   : "Allow",
         "Resource" : "*"
-      },
+      }
     ]
   }
   EOF
@@ -31,7 +31,7 @@ aws_iam_role = <<EOF
         Principal = {
           Service = "ec2.amazonaws.com"
         }
-      },
+      }
     ]
   }
   EOF
@@ -56,18 +56,18 @@ sg_ipv6_cidr_blocks = "::/0"
 sg_tags             = "allow_tls"
 aws_kms_name        = "default"
 aws_kms_alias       = "alias/testalias"
-aws_kms_policy = <<EOF
- {
-    Statement = [
-      {
-        Action = "kms:*",
-        Effect = "Allow",
-        Principal = {
-          AWS = "*"
-        },
-        Resource = "*",
-        Sid      = "Enable IAM User Permissions"
-      }
-    ]
- }
- EOF
+#aws_kms_policy = <<EOF
+# {
+#    "Statement" : [
+#      {
+#        "Action" : "kms:*",
+#        "Effect" : "Allow",
+#        "Principal" : {
+#          "AWS" : "*"
+#        },
+#        "Resource" : "*",
+#        "Sid"      : "Enable IAM User Permissions"
+#      }
+#    ]
+# }
+# EOF

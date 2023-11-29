@@ -35,9 +35,9 @@ module "security_group" {
   ipv6_cidr_blocks = var.sg_ipv6_cidr_blocks
 }
 
-module "kms" {
-  source     = "./kms"
-  name       = var.aws_kms_name
-  alias      = var.aws_kms_alias
-  kms_policy = var.aws_kms_policy
-}
+#module "kms" {
+#  source     = "./kms"
+#  name       = var.aws_kms_name
+#  alias      = var.aws_kms_alias
+#  kms_policy = var.aws_kms_policy
+#}
