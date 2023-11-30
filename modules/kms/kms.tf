@@ -12,13 +12,13 @@ resource "aws_kms_alias" "a" {
 }
 
 # KMS Key Policy
-data "aws_kms_key_policy" "document" {
+data "aws_kms_policy_document" "document" {
   statement {
+    principals {
+      AWS = "kms:*"
+    }
     effect = "Allow"
     action = "kms:*"
-    principals {
-      AWS = "*"
-    }
     Resource = "*"
     Sid      = "Enable IAM User Permissions"
   }
