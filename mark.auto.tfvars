@@ -30,6 +30,8 @@ aws_iam_policy      = <<EOF
 }
 EOF
 
+aws_iam_instance_profile_name = "profile-mark-test1"
+
 aws_iam_role_tags = {
   Name    = "role-mark-test1"
   Service = "iam role"
