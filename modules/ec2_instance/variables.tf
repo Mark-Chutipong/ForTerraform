@@ -28,6 +28,11 @@ variable "key_name" {
   default = "deployer-key"
 }
 
+variable "kms" {
+  type    = string
+  default = ""
+}
+
 variable "tags" {
   type    = map(string)
   default = {}
