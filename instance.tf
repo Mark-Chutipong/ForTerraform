@@ -6,14 +6,13 @@ module "ec2_instance" {
   security_groups      = [module.security_group.id]
   key_name             = aws_key_pair.default.key_name
   user_data            = file("${var.aws_ec2_user_data}")
-
   tags                 = var.aws_ec2_tags
 }
 
 module "iam_role" {
   source                    = "./modules/iam_role"
   iam_role_name             = var.aws_iam_role_name
-  iam_instance_profile_name = var.aws_iam_role_name
+  iam_instance_profile_name = var.aws_iam_instance_profile_name
   iam_policy_name           = var.aws_iam_policy_name
   iam_policy                = var.aws_iam_policy
   iam_role_tags             = var.aws_iam_role_tags

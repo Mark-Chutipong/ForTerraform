@@ -42,6 +42,11 @@ variable "aws_iam_role_name" {
   default = ""
 }
 
+variable "aws_iam_instance_profile_name" {
+  type    = string
+  default = ""
+}
+
 variable "aws_iam_role_tags" {
   type    = map(string)
   default = {}
