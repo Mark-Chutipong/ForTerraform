@@ -12,20 +12,19 @@ resource "aws_kms_alias" "a" {
 }
 
 # KMS Key Policy
-data "aws_iam_policy_document" "document" {
-  statement {
-    
-    effect = "Allow"
-    principals {
-      type        = "Service"
-      identifiers = ["ec2.amazonaws.com"]
-    }
-    
-  }
-}
+#data "aws_iam_policy_document" "document" {
+#  statement {
+#    
+#    effect = "Allow"
+#    principals {
+#      type        = "Service"
+#      identifiers = ["ec2.amazonaws.com"]
+#    }    
+#  }
+#}
 resource "aws_kms_key_policy" "default" {
   key_id = aws_kms_key.default.key_id
-  policy = data.aws_iam_policy_document.document.json
+  policy = var.kms_policy
 }
 
 
