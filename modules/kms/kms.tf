@@ -18,10 +18,10 @@ data "aws_kms_key_policy_document" "kms_policy" {
 
     principals {
       type        = "Service"
-      identifiers = ["ec2.amazonaws.com"]
+      identifiers = ["kms.amazonaws.com"]
     }
 
-    actions = ["sts:AssumeRole"]
+    actions = ["sts:Kms_Policy"]
   }
 }
 
