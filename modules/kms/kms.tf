@@ -25,7 +25,7 @@ data "aws_kms_policy_document" "kms_policy" {
 }
 resource "aws_kms_key_policy" "default" {
   key_id = aws_kms_key.default.key_id
-  policy = data.aws_kms_policy_document.default.json
+  policy = data.aws_kms_policy_document.kms_policy.json
 }
 
 
