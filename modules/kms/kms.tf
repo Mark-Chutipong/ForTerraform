@@ -12,20 +12,20 @@ resource "aws_kms_alias" "a" {
 }
 
 # KMS Key Policy
-#data "aws_kms_policy_document" "kms_policy" {
-#  statement {
-#    effect = "Allow"
-#    action = "kms:*"
-#    principals {
-#      AWS = "*"
-#    }
-#    Resource = "*"
-#        Sid      = "Enable IAM User Permissions"
-#  }
-#}
+data "aws_kms_policy_document" "default" {
+  statement {
+    effect = "Allow"
+    action = "kms:*"
+    principals {
+      AWS = "*"
+    }
+    Resource = "*"
+    Sid      = "Enable IAM User Permissions"
+  }
+}
 resource "aws_kms_key_policy" "default" {
   key_id = aws_kms_key.default.key_id
-  policy = var.kms_policy
+  policy = data.aws_kms_policy_document.default.json
 }
 
 
