@@ -9,3 +9,7 @@ output "iam_role" {
 output "security_group" {
   value = module.security_group
 }
+
+output "kms" {
+  value = module.kms
+}

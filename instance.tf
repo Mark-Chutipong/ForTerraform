@@ -6,7 +6,7 @@ module "ec2_instance" {
   security_groups      = [module.security_group.id]
   key_name             = aws_key_pair.default.key_name
   user_data            = file("${var.aws_ec2_user_data}")
- 
+
   tags                 = var.aws_ec2_tags
 }
 
