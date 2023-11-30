@@ -9,22 +9,8 @@ resource "aws_kms_alias" "a" {
 
 resource "aws_kms_key_policy" "default" {
   key_id = aws_kms_key.default.id
-  policy = data.aws_kms_key_policy_document.kms_policy.json
+  policy = var.kms_policy
 }
 
-data "aws_kms_key_policy_document" "kms_policy" {
-  statement {
-    effect = "Allow"
-    resource = "*"
-    sid      = "Enable IAM User Permissions"
-
-    principals {
-      aws = "*"
-    }
-
-    action = "kms:*"
-
-  }
-}
 
 
