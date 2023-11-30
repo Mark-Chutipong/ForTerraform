@@ -12,7 +12,7 @@ resource "aws_kms_alias" "a" {
 }
 
 # KMS Key Policy
-data "aws_kms_policy_document" "default" {
+data "aws_kms_key_policy" "document" {
   statement {
     effect = "Allow"
     action = "kms:*"
@@ -25,7 +25,7 @@ data "aws_kms_policy_document" "default" {
 }
 resource "aws_kms_key_policy" "default" {
   key_id = aws_kms_key.default.key_id
-  policy = data.aws_kms_policy_document.default.json
+  policy = data.aws_kms_key_policy.document.json
 }
 
 
