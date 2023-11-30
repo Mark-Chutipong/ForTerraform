@@ -15,14 +15,14 @@ resource "aws_kms_key_policy" "default" {
 data "aws_kms_key_policy_document" "kms_policy" {
   statement {
     effect = "Allow"
-    Resource = "*"
-    Sid      = "Enable IAM User Permissions"
+    resource = "*"
+    sid      = "Enable IAM User Permissions"
 
     principals {
-      AWS = "*"
+      aws = "*"
     }
 
-    Action = "kms:*"
+    action = "kms:*"
 
   }
 }
