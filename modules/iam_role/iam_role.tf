@@ -33,6 +33,6 @@ resource "aws_iam_role_policy_attachment" "default" {
 }
 
 resource "aws_iam_instance_profile" "default" {
-  name = aws_iam_instance_profile.default.name
+  name = var.iam_instance_profile_name
   role = aws_iam_role.default.name
 }
