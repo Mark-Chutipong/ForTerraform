@@ -9,10 +9,10 @@ resource "aws_kms_alias" "a" {
 
 resource "aws_kms_key_policy" "default" {
   key_id = aws_kms_key.default.id
-  policy = data.aws_kms_key_policy_document.assume_role.json
+  policy = data.aws_kms_key_policy_document.kms_policy.json
 }
 
-data "aws_kms_key_policy_document" "policy" {
+data "aws_kms_key_policy_document" "kms_policy" {
   statement {
     effect = "Allow"
 
