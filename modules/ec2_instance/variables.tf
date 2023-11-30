@@ -1,8 +1,3 @@
-variable "region" {
-  type    = string
-  default = "ap-southeast-1"
-}
-
 variable "ami" {
   type    = string
   default = "ami-02453f5468b897e31"
@@ -14,23 +9,26 @@ variable "instance_type" {
 }
 
 variable "iam_instance_profile" {
-  type = string
+  type    = string
   default = "ec2_profile"
 }
 
-variable "security_group" {
-  type = string
-  default = "allow_tls"
+variable "security_groups" {
+  type    = list(string)
+  default = []
+}
+
+variable "user_data" {
+  type    = string
+  default = ""
 }
 
 variable "key_name" {
-  type = string
+  type    = string
   default = "deployer-key"
 }
 
-#variable "tags" {
-#  type = map(string)
-#  default = {
-#    "name" = "Test"
-#  }
-#}
+variable "tags" {
+  type    = map(string)
+  default = {}
+}
