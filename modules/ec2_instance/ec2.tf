@@ -7,7 +7,7 @@ resource "aws_instance" "default" {
   user_data            = var.user_data
   tags                 = var.tags
   ebs_block_device {
-    device_name = "/test1"
+    device_name = "default"
     volume_size = var.ebs_size
     volume_type = var.ebs_type
   }
