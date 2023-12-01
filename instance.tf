@@ -8,7 +8,7 @@ module "ec2_instance" {
   user_data            = file("${var.aws_ec2_user_data}")
   ebs_size             = var.aws_ebs_size
   ebs_type             = var.aws_ebs_type
-  region               = var.aws_region
+  availability_zone    = var.aws_availability_zone
   device_name          = var.aws_ebs_device_name
   ec2_tags             = var.aws_ec2_tags
   ebs_tags             = var.aws_ebs_tags

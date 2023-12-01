@@ -10,6 +10,7 @@ aws_ec2_user_data     = "userdata.sh"
 aws_ebs_size = 12
 aws_ebs_type = "gp3"
 aws_ebs_device_name = "/dev/xvda"
+aws_availability_zone = "ap-southeast-1a"
 aws_ec2_tags = {
   Name    = "ec2-mark-test1"
   Service = "ec2"

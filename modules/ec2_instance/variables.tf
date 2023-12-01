@@ -48,7 +48,7 @@ variable "device_name" {
   default = ""
 }
 
-variable "region" {
+variable "availability_zone" {
   type = string
   default = ""
 }
