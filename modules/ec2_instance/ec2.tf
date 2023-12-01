@@ -6,8 +6,7 @@ resource "aws_instance" "default" {
   key_name             = var.key_name
   user_data            = var.user_data
   tags                 = var.tags
-  ebs_block_device {
-    device_name = "default"
+  root_block_device {
     volume_size = var.ebs_size
     volume_type = var.ebs_type
   }
