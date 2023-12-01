@@ -1,3 +1,4 @@
+# ec2_instance
 resource "aws_instance" "default" {
   ami                  = var.ami
   instance_type        = var.instance_type
@@ -5,10 +6,25 @@ resource "aws_instance" "default" {
   security_groups      = var.security_groups
   key_name             = var.key_name
   user_data            = var.user_data
-  tags                 = var.tags
-  ebs_block_device {
-    device_name = "/dev/xvda"
-    volume_size = var.ebs_size
-    volume_type = var.ebs_type
-  }
+  tags                 = var.ec2_tags
+  #ebs_block_device {
+  #  device_name = "/dev/xvda"
+  #  volume_size = var.ebs_size
+  #  volume_type = var.ebs_type
+  #}
+}
+
+# ebs_volume
+resource "aws_ebs_volume" "default" {
+  availability_zone = var.region
+  size              = var.ebs_size
+  type              = var.ebs_type
+
+  tags = var.ebs_tags
+}
+
+resource "aws_volume_attachment" "ebs_att" {
+  device_name = var.device_name
+  volume_id   = aws_ebs_volume.default.id
+  instance_id = aws_instance.default.id
 }

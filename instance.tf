@@ -6,9 +6,12 @@ module "ec2_instance" {
   security_groups      = [var.sg_name]#module.security_group.name
   key_name             = aws_key_pair.default.key_name
   user_data            = file("${var.aws_ec2_user_data}")
-  ebs_size             = var.aws_ec2_ebs_size
-  ebs_type             = var.aws_ec2_ebs_type
-  tags                 = var.aws_ec2_tags
+  ebs_size             = var.aws_ebs_size
+  ebs_type             = var.aws_ebs_type
+  region               = var.aws_region
+  device_name          = var.aws_ebs_device_name
+  ec2_tags             = var.aws_ec2_tags
+  ebs_tags             = var.aws_ebs_tags
 }
 
 module "iam_role" {

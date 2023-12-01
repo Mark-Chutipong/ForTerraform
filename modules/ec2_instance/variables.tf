@@ -43,8 +43,23 @@ variable "ebs_type" {
   default = ""
 }
 
+variable "device_name" {
+  type = string
+  default = ""
+}
 
-variable "tags" {
+variable "region" {
+  type = string
+  default = ""
+}
+
+
+variable "ec2_tags" {
+  type    = map(string)
+  default = {}
+}
+
+variable "ebs_tags" {
   type    = map(string)
   default = {}
 }

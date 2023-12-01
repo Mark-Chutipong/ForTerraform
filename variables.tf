@@ -25,14 +25,24 @@ variable "aws_ec2_tags" {
   default = {}
 }
 
-variable "aws_ec2_ebs_size" {
+variable "aws_ebs_size" {
   type = number
   default = 0
 }
 
-variable "aws_ec2_ebs_type" {
+variable "aws_ebs_type" {
   type = string
   default = ""
+}
+
+variable "aws_ebs_device_name" {
+  type = string
+  default = ""
+}
+
+variable "aws_ebs_tags" {
+  type    = map(string)
+  default = {}
 }
 
 # iam role
