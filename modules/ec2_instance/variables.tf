@@ -33,6 +33,17 @@ variable "kms" {
   default = ""
 }
 
+variable "ebs_size" {
+  type = number
+  default = 0
+}
+
+variable "ebs_type" {
+  type = string
+  default = ""
+}
+
+
 variable "tags" {
   type    = map(string)
   default = {}

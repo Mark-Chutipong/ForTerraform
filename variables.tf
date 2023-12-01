@@ -25,6 +25,16 @@ variable "aws_ec2_tags" {
   default = {}
 }
 
+variable "aws_ec2_ebs_size" {
+  type = number
+  default = 0
+}
+
+variable "aws_ec2_ebs_type" {
+  type = string
+  default = ""
+}
+
 # iam role
 
 variable "aws_iam_policy_name" {
