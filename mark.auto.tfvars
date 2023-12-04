@@ -91,7 +91,7 @@ aws_kms_name  = "default"
 aws_kms_alias = "alias/testalias"
 aws_kms_policy = <<EOF
 {
-    "Statement" : [
+    "Statement" = [
       {
         "Action" : "kms:*",
         "Effect" : "Allow",
@@ -99,7 +99,7 @@ aws_kms_policy = <<EOF
           "AWS" : "*"
         },
         "Resource" : "*",
-        "Sid"      : "Enable IAM User Permissions"
+        "Sid"      : "EnableIAMUserPermissions"
       }
     ]
 }
