@@ -141,6 +141,6 @@ variable "aws_kms_alias" {
 }
 
 variable "aws_kms_policy" {
-  type    = string
-  default = ""
+  type    = map(string)
+  default = {}
 }

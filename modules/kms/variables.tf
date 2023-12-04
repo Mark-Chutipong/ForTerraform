@@ -11,6 +11,6 @@ variable "alias" {
 }
 
 variable "kms_policy" {
-  type    = string
-  default = ""
+  type    = map(string)
+  default = {}
 }

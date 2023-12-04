@@ -89,8 +89,7 @@ sg_tags = {
 
 aws_kms_name  = "default"
 aws_kms_alias = "alias/testalias"
-aws_kms_policy = <<EOF
-{
+aws_kms_policy = {
     "Statement" : [
       {
         "Action" : "kms:*",
@@ -103,4 +102,3 @@ aws_kms_policy = <<EOF
       }
     ]
 }
-EOF
