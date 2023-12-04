@@ -89,8 +89,7 @@ sg_tags = {
 
 aws_kms_name  = "default"
 aws_kms_alias = "alias/testalias"
-aws_kms_policy = <<EOF
-{
+aws_kms_policy = jsonencode({
     "Statement" : [
       {
         "Action" : "kms:*",
@@ -102,5 +101,4 @@ aws_kms_policy = <<EOF
         "Sid"      : "EnableIAMUserPermissions"
       }
     ]
-}
-EOF
+})

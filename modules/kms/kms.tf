@@ -24,9 +24,7 @@ resource "aws_kms_alias" "a" {
 #}
 resource "aws_kms_key_policy" "default" {
   key_id = aws_kms_key.default.key_id
-  #policy = var.kms_policy
-  policy = jsonencode(var.kms_policy)
-    
+  policy = var.kms_policy
   
 }
 
