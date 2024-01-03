@@ -20,7 +20,7 @@ resource "aws_ebs_volume" "default" {
   availability_zone = var.availability_zone
   size              = var.ebs_size
   type              = var.ebs_type
-  #encrypted         = true
+  kms_key_id        = var.kms 
 
 
   tags = var.ebs_tags

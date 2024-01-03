@@ -40,6 +40,11 @@ variable "aws_ebs_device_name" {
   default = ""
 }
 
+variable "aws_ebs_kms" {
+  type    = string
+  default = ""
+}
+
 variable "aws_availability_zone" {
   type = string
   default = ""
