@@ -10,7 +10,6 @@ module "ec2_instance" {
   ebs_type             = var.aws_ebs_type
   availability_zone    = var.aws_availability_zone
   device_name          = var.aws_ebs_device_name
-  kms                  = var.aws_ebs_kms
   ec2_tags             = var.aws_ec2_tags
   ebs_tags             = var.aws_ebs_tags
 }

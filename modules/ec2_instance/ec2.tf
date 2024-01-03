@@ -20,7 +20,8 @@ resource "aws_ebs_volume" "default" {
   availability_zone = var.availability_zone
   size              = var.ebs_size
   type              = var.ebs_type
-  kms_key_id        = var.kms 
+  encrypted         = true
+  kms_key_id        = aws_kms_key.default.arn
 
 
   tags = var.ebs_tags

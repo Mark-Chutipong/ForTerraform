@@ -28,11 +28,6 @@ variable "key_name" {
   default = "deployer-key"
 }
 
-variable "kms" {
-  type    = string
-  default = ""
-}
-
 variable "ebs_size" {
   type = number
   default = 0
