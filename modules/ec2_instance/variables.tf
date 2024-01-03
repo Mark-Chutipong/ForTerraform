@@ -38,6 +38,11 @@ variable "ebs_type" {
   default = ""
 }
 
+variable "kms_key_id" {
+  type = string
+  default = ""
+}
+
 variable "device_name" {
   type = string
   default = ""
