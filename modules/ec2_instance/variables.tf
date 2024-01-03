@@ -38,11 +38,6 @@ variable "ebs_type" {
   default = ""
 }
 
-variable "kms_key_id" {
-  type = arn
-  default = aws_kms_key.default.arn
-}
-
 variable "device_name" {
   type = string
   default = ""

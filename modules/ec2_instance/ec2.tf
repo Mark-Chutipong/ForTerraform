@@ -21,8 +21,6 @@ resource "aws_ebs_volume" "default" {
   size              = var.ebs_size
   type              = var.ebs_type
   encrypted         = true
-  kms_key_id        = aws_kms_key.default.arn
-
 
   tags = var.ebs_tags
 }
