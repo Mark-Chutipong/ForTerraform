@@ -26,27 +26,27 @@ variable "aws_ec2_tags" {
 }
 
 variable "aws_ebs_size" {
-  type = number
+  type    = number
   default = 0
 }
 
 variable "aws_ebs_type" {
-  type = string
+  type    = string
   default = ""
 }
 
 variable "aws_ebs_device_name" {
-  type = string
+  type    = string
   default = ""
 }
 
 variable "aws_kms_key_id" {
-  type = string
+  type    = string
   default = ""
 }
 
 variable "aws_availability_zone" {
-  type = string
+  type    = string
   default = ""
 }
 

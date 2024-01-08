@@ -7,9 +7,9 @@ aws_region = "ap-southeast-1"
 aws_ec2_ami           = "ami-02453f5468b897e31"
 aws_ec2_instance_type = "t2.micro"
 aws_ec2_user_data     = "userdata.sh"
-aws_ebs_size = 12
-aws_ebs_type = "gp3"
-aws_ebs_device_name = "/dev/xvdb"
+aws_ebs_size          = 12
+aws_ebs_type          = "gp3"
+aws_ebs_device_name   = "/dev/xvdb"
 aws_availability_zone = "ap-southeast-1a"
 aws_ec2_tags = {
   Name    = "ec2-mark-test1"
@@ -87,8 +87,8 @@ sg_tags = {
 
 # kms
 
-aws_kms_name  = "default"
-aws_kms_alias = "alias/testalias"
+aws_kms_name   = "default"
+aws_kms_alias  = "alias/testalias"
 aws_kms_policy = <<EOF
 {
     "Statement" : [
