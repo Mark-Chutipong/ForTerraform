@@ -1,8 +1,12 @@
 pipeline {
     agent {
-        docker {
-            image 'hashicorp/terraform:1.2.0'
-            args  '--entrypoint="" -u root -v /opt/jenkins/.aws:/root/.aws -v /tmp:/root/'
+        docker { image 'node:20.10.0-alpine3.19' }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
         }
     }
 }
