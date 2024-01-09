@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh '--version'
+                sh 'terraform --version'
             }
         }
     }
