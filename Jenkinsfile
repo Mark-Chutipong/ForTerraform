@@ -1,11 +1,10 @@
 pipeline {
     agent {
-        docker { image 'hashicorp/terraform:1.6' }
+        docker { image 'hashicorp/terraform:1.6-alpine3.19' }
     }
     stages {
         stage('Test') {
             steps {
-                sh 'install hashicorp/terraform:1.6'
                 sh 'terraform --version'
             }
         }
