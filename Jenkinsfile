@@ -9,11 +9,6 @@ pipeline {
     //     ansiColor('xterm')
     // }
     stages {
-        stage('CleanWorkspace') {
-            steps {
-                cleanWs()
-            }
-        }
         stage('Init') {
             steps {
                 sh 'terraform init'
@@ -31,6 +26,10 @@ pipeline {
         }
         failure {
             echo "Release Failed"
+        }
+        cleanup {
+            echo "Clean up in post work space"
+            cleanWs()
         }
     }
 }
