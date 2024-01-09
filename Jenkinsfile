@@ -21,4 +21,12 @@ pipeline {
             }
         }
     }
+    post {
+        success {
+            echo "Release Success"
+        }
+        failure {
+            echo "Release Failed"
+        }
+    }
 }
