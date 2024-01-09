@@ -19,6 +19,18 @@ pipeline {
                 sh 'terraform plan'
             }
         }
+        stage('Approval') {
+            steps {
+                timeout(time: 3, unit: "MINUTES") {
+                    input message: 'Do you want to approve the deployment?', ok: 'Yes'
+                }
+            }
+        }
+        stage('plan') {
+            steps {
+                sh 'terraform apply'
+            }
+        }
     }
     post {
         success {
