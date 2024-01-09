@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'hashicorp/terraform version '
+                sh 'hashicorp/terraform --version '
             }
         }
     }
