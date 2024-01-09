@@ -4,11 +4,11 @@ aws_region = "ap-southeast-1"
 
 # instance
 
-aws_ec2_ami           = "ami-02453f5468b897e31"
+aws_ec2_ami           = "ami-0120e0e7231daa18b"
 aws_ec2_instance_type = "t2.micro"
 aws_ec2_user_data     = "userdata.sh"
 aws_ebs_size          = 12
-aws_ebs_type          = "gp3"
+aws_ebs_type          = "gp2"
 aws_ebs_device_name   = "/dev/xvdb"
 aws_availability_zone = "ap-southeast-1a"
 aws_ec2_tags = {
@@ -54,7 +54,7 @@ aws_iam_policy_tags = {
 
 sg_name        = "seg-mark-test1"
 sg_description = "security for EC2"
-sg_vpc_id      = "vpc-0338dc15f3ea40aad"
+sg_vpc_id      = "vpc-02a8ec8c771a6e5b9"
 sg_ingress_rules = [
   {
     from_port   = 22
