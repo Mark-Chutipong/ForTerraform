@@ -5,9 +5,6 @@ pipeline {
             args "--entrypoint=''"
         }
     }
-    options {
-        ansiColor('xterm')
-    }
     stages {
         stage('CleanWorkspace') {
             steps {
