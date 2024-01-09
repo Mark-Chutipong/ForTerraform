@@ -6,11 +6,11 @@ pipeline {
         }
     }
     stages {
-        stage('CleanWorkspace') {
-            steps {
-                cleanWs()
-            }}
-        }
+        // stage('CleanWorkspace') {
+        //     steps {
+        //         cleanWs()
+        //     }
+        // }
         stage('Init') {
             steps {
                 sh 'terraform init'
