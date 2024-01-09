@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "mark-tf-bucket"
-    key    = "stage-mark"
+    bucket = "s3-water-test"
+    key    = "ec2"
     region = "ap-southeast-1"
   }
 }
