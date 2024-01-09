@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'node:20.10.0-alpine3.19' }
+        docker { image 'node:20.10.0-hashicorp/terraform:1.6' }
     }
     stages {
         stage('Test') {
