@@ -17,7 +17,7 @@ pipeline {
         stage('Plan') {
             steps {
                 //sh 'terraform plan $(TerraformVarsFile)'
-                sh 'terraform plan -var-file=".tfvars/mark.tfvars-var-file=.tfvars/mark2.tfvars"'
+                sh 'terraform plan -var-file="tfvars/mark.tfvars-var-file=tfvars/mark2.tfvars"'
                 //sh 'terraform plan -var-file="tfvars/mark2.tfvars"'
                 //sh 'terraform plan -var-file="*.tfvars"'
                 //sh 'terraform plan -var-file="tfvars/mark.auto.tfvars"'
@@ -34,7 +34,7 @@ pipeline {
         stage('Action') {
             steps {
                 //sh 'terraform ${action} $(TerraformVarsFile) -auto-approve'
-                sh 'terraform ${action} -var-file=".tfvars/mark.tfvars-var-file=.tfvars/mark2.tfvars" -auto-approve'
+                sh 'terraform ${action} -var-file="tfvars/mark.tfvars-var-file=tfvars/mark2.tfvars" -auto-approve'
                 //sh 'terraform ${action} -var-file="tfvars/mark2.tfvars" -auto-approve'
                 //sh 'terraform ${action} -var-file="*.tfvars" -auto-approve'
                 //sh 'terraform ${action} -var-file="tfvars/mark.auto.tfvars" -auto-approve'
