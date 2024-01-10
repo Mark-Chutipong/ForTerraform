@@ -19,7 +19,8 @@ pipeline {
                 //sh 'terraform plan $(TerraformVarsFile)'
                 //sh 'terraform plan -var-file="tfvars/mark.tfvars"'
                 //sh 'terraform plan -var-file="*.tfvars"'
-                sh 'terraform plan -var-file="tfvars/mark.auto.tfvars"'
+                //sh 'terraform plan -var-file="tfvars/mark.auto.tfvars"'
+                sh 'terraform plan -var-file="fileset(path.module, "tfvars/*.tfvars")"'
             }
         }
         stage('Approval') {
@@ -34,7 +35,8 @@ pipeline {
                 //sh 'terraform ${action} $(TerraformVarsFile) -auto-approve'
                 //sh 'terraform ${action} -var-file="tfvars/mark.tfvars" -auto-approve'
                 //sh 'terraform ${action} -var-file="*.tfvars" -auto-approve'
-                sh 'terraform ${action} -var-file="tfvars/mark.auto.tfvars" -auto-approve'
+                //sh 'terraform ${action} -var-file="tfvars/mark.auto.tfvars" -auto-approve'
+                sh 'terraform ${action} -var-file="fileset(path.module, "tfvars/*.tfvars")" -auto-approve'
             }
         }
     }
