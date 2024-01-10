@@ -11,10 +11,21 @@ module "ec2_instance" {
   ebs_type             = var.aws_ebs_type
   # kms_key_id           = module.kms.arn
   availability_zone    = var.aws_availability_zone
+  subnet_id            = var.aws_ec2_subnet_id
   device_name          = var.aws_ebs_device_name
   ec2_tags             = var.aws_ec2_tags
   ebs_tags             = var.aws_ebs_tags
 }
+
+# module "ec2_instance" {
+#   source = "git::https://github.com/terraform-aws-modules/terraform-aws-ec2-instance.git?ref=master"
+
+#   instance_type               = var.aws_ec2_instance_type
+#   subnet_id                   = var.aws_ec2_subnet_id
+#   vpc_security_group_ids      = [module.security_group.id]
+#   associate_public_ip_address = true
+#   tags                        = var.aws_ec2_tags
+# }
 
 module "iam_role" {
   source                    = "git::https://github.com/Mark-Chutipong/iam_role.git?ref=main"

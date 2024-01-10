@@ -25,6 +25,11 @@ variable "aws_ec2_tags" {
   default = {}
 }
 
+variable "aws_ec2_subnet_id" {
+  type    = string
+  default = ""  
+}
+
 variable "aws_ebs_size" {
   type    = number
   default = 0

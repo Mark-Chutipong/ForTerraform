@@ -6,7 +6,8 @@ aws_region = "ap-southeast-1"
 
 aws_ec2_ami           = "ami-0120e0e7231daa18b"
 aws_ec2_instance_type = "t2.micro"
-aws_ec2_user_data     = "userdate/mark.sh"
+aws_ec2_subnet_id     = "subnet-045807880c4a0c5ad"
+aws_ec2_user_data     = "userdata/mark.sh"
 aws_ebs_size          = 12
 aws_ebs_type          = "gp2"
 aws_ebs_device_name   = "/dev/xvdb"
