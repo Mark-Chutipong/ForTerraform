@@ -26,9 +26,9 @@ pipeline {
                 }
             }
         }
-        stage('Apply') {
+        stage('Action') {
             steps {
-                sh 'terraform apply -var-file="tfvars/mark.tfvars" -auto-approve'
+                sh 'terraform ${action} -var-file="tfvars/mark.tfvars" -auto-approve'
             }
         }
     }
