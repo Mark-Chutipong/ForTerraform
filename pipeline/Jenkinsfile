@@ -26,24 +26,23 @@ pipeline {
                 //sh 'terraform plan -var-file="tfvars/mark.tfvars-var-file=tfvars/mark2.tfvars"'
                 //sh 'terraform plan -var-file="tfvars/mark2.tfvars"'
                 echo "ACTION : ${params.ACTION}"
-                echo 'terraform ${params.ACTION} -var-file="tfvars/mark.tfvars"'
-                sh 'terraform ${params.ACTION} -var-file="tfvars/mark.tfvars"'
+                sh 'terraform plan -var-file="tfvars/mark.tfvars"'
                 //sh 'terraform plan -var-file="*.tfvars"'
                 //sh 'terraform plan -var-file="tfvars/mark.auto.tfvars"'
                 //sh 'terraform plan -var-file="${name,fileset(path.module, "tfvars/*.tfvars")}"'
             }
         }
-        // stage('Approval') {
-        //     when {
-        //         expression { params.ACTION == 'apply'}
-        //     }
-        //     steps {
-        //         timeout(time: 3, unit: "MINUTES") {
-        //             input message: 'Do you want to approve the deployment?', ok: 'Yes'
-        //         }
-        //         sh 'terraform ${params.ACTION} -var-file="tfvars/mark.tfvars" -auto-approve'
-        //     }
-        // }
+        stage('Approval') {
+            when {
+                expression { params.ACTION == 'apply'}
+            }
+            steps {
+                timeout(time: 3, unit: "MINUTES") {
+                    input message: 'Do you want to approve the deployment?', ok: 'Yes'
+                }
+                sh 'terraform apply -var-file="tfvars/mark.tfvars" -auto-approve'
+            }
+        }
         // stage('Action') {
         //     steps {
         //         //sh 'terraform ${action} $(TerraformVarsFile) -auto-approve'
@@ -55,14 +54,14 @@ pipeline {
         //         //sh 'terraform ${action} -var-file="${name,fileset(path.module, "tfvars/*.tfvars")}" -auto-approve'
         //     }
         // }
-        // stage('Destroy') {
-        //     when {
-        //         expression { params.ACTION == 'destroy'}
-        //     }
-        //     steps {
-        //         sh 'terraform ${params.ACTION} -var-file="tfvars/mark.tfvars" -auto-approve'
-        //     }
-        // }
+        stage('Destroy') {
+            when {
+                expression { params.ACTION == 'destroy'}
+            }
+            steps {
+                sh 'terraform destroy -var-file="tfvars/mark.tfvars" -auto-approve'
+            }
+        }
     }
     post {
         success {
