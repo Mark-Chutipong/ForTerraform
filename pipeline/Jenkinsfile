@@ -22,14 +22,8 @@ pipeline {
                 expression { params.ACTION == 'plan'}
             }
             steps {
-                //sh 'terraform plan $(TerraformVarsFile)'
-                //sh 'terraform plan -var-file="tfvars/mark.tfvars-var-file=tfvars/mark2.tfvars"'
-                //sh 'terraform plan -var-file="tfvars/mark2.tfvars"'
                 echo "ACTION : ${params.ACTION}"
                 sh 'terraform plan -var-file=${TF_VARS}'
-                //sh 'terraform plan -var-file="*.tfvars"'
-                //sh 'terraform plan -var-file="tfvars/mark.auto.tfvars"'
-                //sh 'terraform plan -var-file="${name,fileset(path.module, "tfvars/*.tfvars")}"'
             }
         }
         stage('Approval') {
