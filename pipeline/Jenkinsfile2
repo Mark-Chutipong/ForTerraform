@@ -1,0 +1,63 @@
+pipeline {
+    agent {
+        docker { 
+            image 'hashicorp/terraform:1.6.6'
+            args "--entrypoint=''"
+        }
+    }
+    parameters {
+        choice(name: 'ACTION', choices: ['plan', 'apply', 'destroy'], description: 'Select Action')
+    }
+    environment {
+        TF_VARS = "tfvars/mark2.tfvars"
+    }
+    stages {
+        stage('Init') {
+            steps {
+                sh 'terraform init'
+            }
+        }
+        stage('Plan') {
+            when {
+                expression { params.ACTION == 'plan'}
+            }
+            steps {
+                echo "ACTION : ${params.ACTION}"
+                sh 'terraform plan -var-file=${TF_VARS}'
+            }
+        }
+        stage('Approval') {
+            when {
+                expression { params.ACTION == 'apply'}
+            }
+            steps {
+                echo "ACTION : ${params.ACTION}"
+                timeout(time: 3, unit: "MINUTES") {
+                    input message: 'Do you want to approve the deployment?', ok: 'Yes'
+                }
+                sh 'terraform apply -var-file=${TF_VARS} -auto-approve'
+            }
+        }
+        stage('Destroy') {
+            when {
+                expression { params.ACTION == 'destroy'}
+            }
+            steps {
+                echo "ACTION : ${params.ACTION}"
+                sh 'terraform destroy -var-file=${TF_VARS} -auto-approve'
+            }
+        }
+    }
+    post {
+        success {
+            echo "Release Success"
+        }
+        failure {
+            echo "Release Failed"
+        }
+        cleanup {
+            echo "Clean up in post work space"
+            cleanWs()
+        }
+    }
+}
