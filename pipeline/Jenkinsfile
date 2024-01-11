@@ -26,7 +26,7 @@ pipeline {
                 //sh 'terraform plan -var-file="tfvars/mark.tfvars-var-file=tfvars/mark2.tfvars"'
                 //sh 'terraform plan -var-file="tfvars/mark2.tfvars"'
                 echo "ACTION : ${params.ACTION}"
-                sh terraform "${params.ACTION}" -var-file="tfvars/mark.tfvars"
+                sh "terraform "${params.ACTION}" -var-file='tfvars/mark.tfvars'"
                 //sh 'terraform plan -var-file="*.tfvars"'
                 //sh 'terraform plan -var-file="tfvars/mark.auto.tfvars"'
                 //sh 'terraform plan -var-file="${name,fileset(path.module, "tfvars/*.tfvars")}"'
