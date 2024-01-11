@@ -8,9 +8,9 @@ pipeline {
     parameters {
         choice(name: 'ACTION', choices: ['plan', 'apply', 'destroy'], description: 'Select Action')
     }
-    // options {
-    //     ansiColor('xterm')
-    // }
+    environment {
+        TF_VARS = "tfvars/mark.tfvars"
+    }
     stages {
         stage('Init') {
             steps {
@@ -26,7 +26,7 @@ pipeline {
                 //sh 'terraform plan -var-file="tfvars/mark.tfvars-var-file=tfvars/mark2.tfvars"'
                 //sh 'terraform plan -var-file="tfvars/mark2.tfvars"'
                 echo "ACTION : ${params.ACTION}"
-                sh 'terraform plan -var-file="tfvars/mark.tfvars"'
+                sh 'terraform plan -var-file=${TF_VARS}'
                 //sh 'terraform plan -var-file="*.tfvars"'
                 //sh 'terraform plan -var-file="tfvars/mark.auto.tfvars"'
                 //sh 'terraform plan -var-file="${name,fileset(path.module, "tfvars/*.tfvars")}"'
@@ -41,27 +41,16 @@ pipeline {
                 timeout(time: 3, unit: "MINUTES") {
                     input message: 'Do you want to approve the deployment?', ok: 'Yes'
                 }
-                sh 'terraform apply -var-file="tfvars/mark.tfvars" -auto-approve'
+                sh 'terraform apply -var-file=${TF_VARS} -auto-approve'
             }
         }
-        // stage('Action') {
-        //     steps {
-        //         //sh 'terraform ${action} $(TerraformVarsFile) -auto-approve'
-        //         //sh 'terraform ${action} -var-file="tfvars/mark.tfvars-var-file=tfvars/mark2.tfvars" -auto-approve'
-        //         //sh 'terraform ${action} -var-file="tfvars/mark2.tfvars" -auto-approve'
-        //         sh 'terraform ${action} -var-file="tfvars/mark.tfvars" -auto-approve'
-        //         //sh 'terraform ${action} -var-file="*.tfvars" -auto-approve'
-        //         //sh 'terraform ${action} -var-file="tfvars/mark.auto.tfvars" -auto-approve'
-        //         //sh 'terraform ${action} -var-file="${name,fileset(path.module, "tfvars/*.tfvars")}" -auto-approve'
-        //     }
-        // }
         stage('Destroy') {
             when {
                 expression { params.ACTION == 'destroy'}
             }
             steps {
                 echo "ACTION : ${params.ACTION}"
-                sh 'terraform destroy -var-file="tfvars/mark.tfvars" -auto-approve'
+                sh 'terraform destroy -var-file=${TF_VARS} -auto-approve'
             }
         }
     }
