@@ -37,6 +37,7 @@ pipeline {
                 expression { params.ACTION == 'apply'}
             }
             steps {
+                echo "ACTION : ${params.ACTION}"
                 timeout(time: 3, unit: "MINUTES") {
                     input message: 'Do you want to approve the deployment?', ok: 'Yes'
                 }
@@ -59,6 +60,7 @@ pipeline {
                 expression { params.ACTION == 'destroy'}
             }
             steps {
+                echo "ACTION : ${params.ACTION}"
                 sh 'terraform destroy -var-file="tfvars/mark.tfvars" -auto-approve'
             }
         }
