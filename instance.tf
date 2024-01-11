@@ -4,17 +4,17 @@ module "ec2_instance" {
   ami                  = var.aws_ec2_ami
   instance_type        = var.aws_ec2_instance_type
   iam_instance_profile = var.aws_iam_instance_profile_name #module.iam_role.name
-  security_groups      = [module.security_group.id] # [var.sg_name]                     #module.security_group.name
+  security_groups      = [module.security_group.id]        # [var.sg_name]                     #module.security_group.name
   key_name             = aws_key_pair.default.key_name
   user_data            = file("${var.aws_ec2_user_data}")
   ebs_size             = var.aws_ebs_size
   ebs_type             = var.aws_ebs_type
   # kms_key_id           = module.kms.arn
-  availability_zone    = var.aws_availability_zone
-  subnet_id            = var.aws_ec2_subnet_id
-  device_name          = var.aws_ebs_device_name
-  ec2_tags             = var.aws_ec2_tags
-  ebs_tags             = var.aws_ebs_tags
+  availability_zone = var.aws_availability_zone
+  subnet_id         = var.aws_ec2_subnet_id
+  device_name       = var.aws_ebs_device_name
+  ec2_tags          = var.aws_ec2_tags
+  ebs_tags          = var.aws_ebs_tags
 }
 
 # module "ec2_instance" {
