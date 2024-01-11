@@ -5,6 +5,9 @@ pipeline {
             args "--entrypoint=''"
         }
     }
+    parameters {
+        choice(name: 'ACTION', choices: ['plan', 'apply', 'destroy'], description: 'Select Action')
+    }
     // options {
     //     ansiColor('xterm')
     // }
