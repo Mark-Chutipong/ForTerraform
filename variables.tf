@@ -9,7 +9,7 @@ variable "aws_profile" {
 }
 
 variable "aws_shared_credentials_files" {
-  type    = list(stirng)
+  type    = list(string)
   default = ["../credentials/profile"]
 }
 
