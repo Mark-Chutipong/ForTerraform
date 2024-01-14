@@ -10,7 +10,7 @@ variable "aws_profile" {
 
 variable "aws_shared_credentials_files" {
   type    = list(stirng)
-  default = ["../credentials/credentials"]
+  default = ["../credentials/profile"]
 }
 
 # instance
