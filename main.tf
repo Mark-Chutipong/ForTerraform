@@ -1,6 +1,5 @@
 provider "aws" {
-  region = var.aws_region
-  #shared_config_files      = ["/home/thanakrit/.aws/config"]
-  #shared_credentials_files = ["/home/thanakrit/.aws/credentials"]
-  #profile                  = "water"
+  region                   = var.aws_region
+  profile                  = var.aws_profile
+  shared_credentials_files = var.aws_shared_credentials_files
 }

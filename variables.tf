@@ -3,6 +3,16 @@ variable "aws_region" {
   default = "ap-southeast-1"
 }
 
+variable "aws_profile" {
+  type    = string
+  default = "default"
+}
+
+variable "aws_shared_credentials_files" {
+  type    = list(stirng)
+  default = ["../credentials/credentials"]
+}
+
 # instance
 
 variable "aws_ec2_ami" {

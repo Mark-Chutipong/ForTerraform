@@ -12,13 +12,15 @@ pipeline {
         TF_VARS = "tfvars/mark.tfvars"
     }
     stages {
-        stage('GetCredential') {
+        stage('Prepare secrets') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'jeknins_credential', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-                sh 'echo $AWS_SECRET_ACCESS_KEY'
-                echo USERNAME
-                echo "AWS_ACCESS_KEY_ID is $AWS_ACCESS_KEY_ID"
-                echo "AWS_SECRET_ACCESS_KEY is $AWS_SECRET_ACCESS_KEY"
+                withCredentials([
+                usernamePassword(credentialsId: 'jeknins_credential', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
+                sh '''
+                export CRED_FILE=${WORKSPACE}/credentials
+                sed -i 's|__AWS_ACCESS_KEY_ID__|'${AWS_ACCESS_KEY_ID}'|g' ${CRED_FILE}
+                sed -i 's|__AWS_SECRET_ACCESS_KEY__|'${AWS_SECRET_ACCESS_KEY}'|g' ${CRED_FILE}
+                '''
                 }
             }
         }
@@ -65,9 +67,9 @@ pipeline {
         failure {
             echo "Release Failed"
         }
-        cleanup {
-            echo "Clean up in post work space"
-            cleanWs()
-        }
+        // cleanup {
+        //     echo "Clean up in post work space"
+        //     cleanWs()
+        // }
     }
 }
