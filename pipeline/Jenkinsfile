@@ -12,6 +12,16 @@ pipeline {
         TF_VARS = "tfvars/mark.tfvars"
     }
     stages {
+        stage('GetCredential') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'jeknins_credential', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                sh 'echo $PASSWORD'
+                echo USERNAME
+                echo "AWS_ACCESS_KEY_ID is $AWS_ACCESS_KEY_ID"
+                echo "AWS_SECRET_ACCESS_KEY is $AWS_SECRET_ACCESS_KEY"
+                }
+            }
+        }
         stage('Init') {
             steps {
                 sh 'terraform init'
