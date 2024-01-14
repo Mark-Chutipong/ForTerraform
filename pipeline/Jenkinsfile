@@ -67,9 +67,9 @@ pipeline {
         failure {
             echo "Release Failed"
         }
-        // cleanup {
-        //     echo "Clean up in post work space"
-        //     cleanWs()
-        // }
+        cleanup {
+            echo "Clean up in post work space"
+            cleanWs()
+        }
     }
 }

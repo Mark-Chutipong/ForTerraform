@@ -12,6 +12,18 @@ pipeline {
         TF_VARS = "tfvars/mark2.tfvars"
     }
     stages {
+        stage('Prepare secrets') {
+            steps {
+                withCredentials([
+                usernamePassword(credentialsId: 'jeknins_credential', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
+                sh '''
+                export CRED_FILE=${WORKSPACE}/credentials/profile
+                sed -i 's|__AWS_ACCESS_KEY_ID__|'${AWS_ACCESS_KEY_ID}'|g' ${CRED_FILE}
+                sed -i 's|__AWS_SECRET_ACCESS_KEY__|'${AWS_SECRET_ACCESS_KEY}'|g' ${CRED_FILE}
+                '''
+                }
+            }
+        }
         stage('Init') {
             steps {
                 sh 'terraform init'
