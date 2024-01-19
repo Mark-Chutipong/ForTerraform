@@ -89,7 +89,7 @@ sg_tags = {
 # kms
 
 aws_kms_name   = "default"
-aws_kms_alias  = "alias/testalias"
+aws_kms_alias  = "alias/testalias2"
 aws_kms_policy = <<EOF
 {
     "Statement" : [
