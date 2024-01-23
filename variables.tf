@@ -30,6 +30,11 @@ variable "aws_ec2_user_data" {
   default = ""
 }
 
+variable "aws_ec2_key_name" {
+  type    = string
+  default = ""
+}
+
 variable "aws_ec2_tags" {
   type    = map(string)
   default = {}
