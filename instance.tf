@@ -9,7 +9,7 @@ module "ec2_instance" {
   user_data            = file("${var.aws_ec2_user_data}")
   ebs_size             = var.aws_ebs_size
   ebs_type             = var.aws_ebs_type
-  # kms_key_id           = module.kms.arn
+  kms_key_id           = module.kms.arn
   availability_zone = var.aws_availability_zone
   subnet_id         = var.aws_ec2_subnet_id
   device_name       = var.aws_ebs_device_name
