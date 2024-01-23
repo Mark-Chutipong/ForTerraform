@@ -1,10 +1,10 @@
-resource "aws_key_pair" "default" {
+resource "aws_key_pair" "key1" {
   key_name   = "deployer-key"
   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0Fg8D/pbeFXV5e5kDuqyfkApq2V+8mT28HvGHTIu6YYAG6UZc3QXFrrxtNVr1aEv8CQi3Gx/4Aq0hp2dmUR5wDMYL7hCeqf1XAyTb8d6p9KoKXazv6RgmgaugvzPSjDH+1wdKVEA0upv05o5WNdtizVnkBxGgCN9y5dWqV0UewBjZeM+N3E9ZiOjP5djGqGFEbGLuI62JseDlxmjJywoohsjoWJVB0XdK+stA4NNvWWHv2MR0qHmwx7nxUPu8WojKEcsVhQvII/LY2tFWO1kSaTTYJ6i8Bj5PRYTVBenOOkTosVWh2zN8MbIWuA3KsBvOZwHIWxhMa5Ti6Mweffp9"
 }
 
-#resource "aws_key_pair" "key2" {
-#  key_name   = "deployer-key2"
-#  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0Fg8D/pbeFXV5e5kDuqyfkApq2V+8mT28HvGHTIu6YYAG6UZc3QXFrrxtNVr1aEv8CQi3Gx/4Aq0hp2dmUR5wDMYL7hCeqf1XAyTb8d6p9KoKXazv6RgmgaugvzPSjDH+1wdKVEA0upv05o5WNdtizVnkBxGgCN9y5dWqV0UewBjZeM+N3E9ZiOjP5djGqGFEbGLuI62JseDlxmjJywoohsjoWJVB0XdK+stA4NNvWWHv2MR0qHmwx7nxUPu8WojKEcsVhQvII/LY2tFWO1kSaTTYJ6i8Bj5PRYTVBenOOkTosVWh2zN8MbIWuA3KsBvOZwHIWxhMa5Ti6Mweffp9"
-#}
+resource "aws_key_pair" "key2" {
+  key_name   = "deployer-key2"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCAiBG42kD0/4gT847UOqUdhpMzZjKJFL+ZLtkjd7+ohd6ibjozqWNRrFXpHHCO5PmPNZQFrBL0ipThjhqBCizxF3l/FdazeYmDsHNjGWgJ8UyfHdm7Fzdow0M5Dkc4N1H3ajO14Sq0Zg16Us4G0BqxfGNU7K2HjwQ5Iq8UMSFBuk6G+ExW/SsYF7Pv47B6KVNOKstRedDTMeK8f86+r2kpNK1424+Su1OB7N+TuJou76oTQf2yL4CaHZj9jpcGpkdQs/OZdmVMyuAhDWFe38X2uPy8S2+nahRtW1LoYrEx2OccGzmfH/pQndfgoj2g4SLKfJqg1kgmjUXBoVMChf1d"
+}
 
