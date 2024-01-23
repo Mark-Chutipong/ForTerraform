@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Init') {
             steps {
-                sh 'terraform init -backend-config=${BACKEND}'
+                sh 'terraform init -backend-config="path=${BACKEND}"'
             }
         }
         stage('Plan') {
