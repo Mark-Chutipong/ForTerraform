@@ -11,7 +11,7 @@ pipeline {
     environment {
         TF_VARS = "tfvars/mark.tfvars"
         //BACKEND = "backend/backend1.tf"
-        BACKEND = "backend.tf"
+        
     }
     stages {
         stage('Prepare secrets') {
@@ -28,7 +28,8 @@ pipeline {
         }
         stage('Init') {
             steps {
-                sh 'terraform init -backend-config="${BACKEND}"'
+                //sh 'terraform init -backend-config="${BACKEND}"'
+                sh 'terraform init '
             }
         }
         stage('Plan') {
