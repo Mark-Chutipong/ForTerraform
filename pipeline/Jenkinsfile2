@@ -10,7 +10,8 @@ pipeline {
     }
     environment {
         TF_VARS = "tfvars/mark2.tfvars"
-        BACKEND = "backend/backend2.tf"
+        //BACKEND = "backend/backend2.tf"
+        BACKEND = "backend.tf"
     }
     stages {
         stage('Prepare secrets') {
