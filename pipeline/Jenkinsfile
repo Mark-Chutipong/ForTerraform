@@ -10,7 +10,8 @@ pipeline {
     }
     environment {
         TF_VARS = "tfvars/mark.tfvars"
-        BACKEND = "backend/backend1.tf"
+        //BACKEND = "backend/backend1.tf"
+        BACKEND = "backend.tf"
         
     }
     stages {
