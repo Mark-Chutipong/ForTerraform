@@ -35,6 +35,13 @@ variable "aws_ec2_key_name" {
   default = ""
 }
 
+variable "aws_ec2_create_keypair" {
+  type    = string
+  default = ""
+}
+
+
+
 variable "aws_ec2_tags" {
   type    = map(string)
   default = {}

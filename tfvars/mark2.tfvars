@@ -9,6 +9,7 @@ aws_ec2_instance_type = "t2.micro"
 #aws_ec2_subnet_id     = "subnet-045807880c4a0c5ad"
 aws_ec2_user_data     = "userdata/mark.sh"
 aws_ec2_key_name      = "deployer-key"
+aws_ec2_create_status = "false"  
 aws_ebs_size          = 10
 aws_ebs_type          = "gp3"
 aws_ebs_device_name   = "/dev/xvdb"
