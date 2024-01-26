@@ -12,6 +12,7 @@ pipeline {
         TF_VARS = "tfvars/mark2.tfvars"
         //BACKEND = "backend/backend2.tf"
         //BACKEND = "backend.tf"
+        WORKSPACE = "Test2"
         
     }
     stages {
@@ -31,6 +32,7 @@ pipeline {
             steps {
                 //sh 'terraform init -backend-config=${BACKEND}'
                 sh 'terraform init'
+                sh 'terraform workspace select -or-create ${WORKSPACE}'
             }
         }
         stage('Plan') {
