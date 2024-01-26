@@ -51,7 +51,7 @@ pipeline {
             steps {
                 echo "ACTION : ${params.ACTION}"
                 timeout(time: 3, unit: "MINUTES") {
-                    input message: 'Do you want to approve the deployment?', ok: 'Yes'
+                    input message: 'Do you want to approve the deployment?', ok:'Yes'
                 }
                 sh 'terraform apply -var-file=${TF_VARS} -auto-approve'
             }
