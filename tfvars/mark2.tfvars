@@ -6,10 +6,8 @@ aws_region = "ap-southeast-1"
 
 aws_ec2_ami           = "ami-07d76357cf31e1a1a"
 aws_ec2_instance_type = "t4g.small"
-#aws_ec2_subnet_id     = "subnet-045807880c4a0c5ad"
 aws_ec2_user_data     = "userdata/mark.sh"
 aws_ec2_key_name      = "deployer-key2"
-#aws_ec2_create_status = "false"  
 aws_ebs_size          = 10
 aws_ebs_type          = "gp3"
 aws_ebs_device_name   = "/dev/xvdb"
@@ -57,7 +55,6 @@ aws_iam_policy_tags = {
 
 sg_name        = "seg-mark-test2"
 sg_description = "security for EC2"
-#sg_vpc_id      = "vpc-02a8ec8c771a6e5b9"
 sg_ingress_rules = [
   {
     from_port   = 22

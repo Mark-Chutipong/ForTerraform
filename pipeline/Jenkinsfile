@@ -10,8 +10,6 @@ pipeline {
     }
     environment {
         TF_VARS = "tfvars/mark.tfvars"
-        //BACKEND = "backend/backend1.tf"
-        //BACKEND = "backend.tf"
         WS = "Test1"
         
     }
@@ -30,7 +28,6 @@ pipeline {
         }
         stage('Init') {
             steps {
-                //sh 'terraform init -backend-config=${BACKEND}'
                 sh 'terraform init'
                 sh 'terraform workspace select -or-create ${WS}'
             }

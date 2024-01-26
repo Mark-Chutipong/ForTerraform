@@ -3,8 +3,8 @@ module "ec2_instance" {
 
   ami                  = var.aws_ec2_ami
   instance_type        = var.aws_ec2_instance_type
-  iam_instance_profile = var.aws_iam_instance_profile_name #module.iam_role.name
-  security_groups      = [module.security_group.id]        # [var.sg_name]                     #module.security_group.name
+  iam_instance_profile = var.aws_iam_instance_profile_name 
+  security_groups      = [module.security_group.id]                  
   key_name             = var.aws_ec2_key_name
   user_data            = file("${var.aws_ec2_user_data}")
   ebs_size             = var.aws_ebs_size
@@ -16,16 +16,6 @@ module "ec2_instance" {
   ec2_tags          = var.aws_ec2_tags
   ebs_tags          = var.aws_ebs_tags
 }
-
-# module "ec2_instance" {
-#   source = "git::https://github.com/terraform-aws-modules/terraform-aws-ec2-instance.git?ref=master"
-
-#   instance_type               = var.aws_ec2_instance_type
-#   subnet_id                   = var.aws_ec2_subnet_id
-#   vpc_security_group_ids      = [module.security_group.id]
-#   associate_public_ip_address = true
-#   tags                        = var.aws_ec2_tags
-# }
 
 module "iam_role" {
   source                    = "git::https://github.com/Mark-Chutipong/iam_role.git?ref=main"
