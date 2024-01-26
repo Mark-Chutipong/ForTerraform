@@ -5,7 +5,7 @@ aws_region = "ap-southeast-1"
 # instance
 
 aws_ec2_ami           = "ami-0120e0e7231daa18b"
-aws_ec2_instance_type = "t2.micro"
+aws_ec2_instance_type = "t4g.small"
 #aws_ec2_subnet_id     = "subnet-045807880c4a0c5ad"
 aws_ec2_user_data     = "userdata/mark.sh"
 aws_ec2_key_name      = "deployer-key2"
