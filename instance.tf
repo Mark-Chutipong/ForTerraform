@@ -6,7 +6,6 @@ module "ec2_instance" {
   iam_instance_profile = var.aws_iam_instance_profile_name #module.iam_role.name
   security_groups      = [module.security_group.id]        # [var.sg_name]                     #module.security_group.name
   key_name             = var.aws_ec2_key_name
-  public_key           = var.aws_ec2_public_key
   user_data            = file("${var.aws_ec2_user_data}")
   ebs_size             = var.aws_ebs_size
   ebs_type             = var.aws_ebs_type
