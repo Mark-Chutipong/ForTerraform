@@ -32,7 +32,7 @@ pipeline {
             steps {
                 //sh 'terraform init -backend-config=${BACKEND}'
                 sh 'terraform init'
-                sh 'terraform workspace select -or-create ${WORKSPACE}'
+                //sh 'terraform workspace select -or-create ${WORKSPACE}'
             }
         }
         stage('Plan') {
